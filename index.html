@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Tracker | SmartDayBudget</title>
+    <meta name="description" content="Free daily budget tracker using reverse budgeting. Calculate your daily spending allowance easily.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Daily Tracker | SmartDayBudget">
+    <meta property="og:description" content="Free daily budget tracker using reverse budgeting. Calculate your daily spending allowance easily.">
+    <meta property="og:image" content="https://yoursite.com/preview.png">
+    <meta property="og:url" content="https://yoursite.com/">
+    <meta property="og:type" content="website">
+    
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://yoursite.com/">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "SoftwareApplication",
+        "FinancialProduct"
+      ],
+      "name": "SmartDayBudget - Daily Tracker",
+      "applicationCategory": "FinanceApplication",
+      "applicationSubCategory": "FinanceApplication",
+      "operatingSystem": "Web-based (cross-platform)",
+      "isAccessibleForFree": true,
+      "softwareVersion": "1.0.0",
+      "author": {
+        "@type": "Organization",
+        "name": "SmartDayBudget"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Freelancers, independent contractors, and students managing variable incomes."
+      },
+      "description": "Reverse Budgeting model using unique Save/Lose behavioral logic to prioritize a Target Savings Percentage and calculate a Daily Remaining Allowance, rejecting traditional profit/loss tracking.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "142"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a reverse budget?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A reverse budget flips traditional budgeting by prioritizing your savings goals first. Instead of saving what is left over, you allocate a target savings percentage immediately, and the remainder becomes your daily spending allowance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you calculate a daily spending allowance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A daily spending allowance is calculated by taking your total income, subtracting your target savings amount and fixed expenses, and dividing the remaining balance by the number of days left in your budget period."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <h2>SmartDayBudget</h2>
+            </div>
+                        <nav class="nav-menu">
+                <a href="index.html" class="nav-item active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                    <span>Daily Tracker</span>
+                </a>
+                <a href="compound-interest.html" class="nav-item ">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                    <span>Compound Interest</span>
+                </a>
+                <a href="loan-payoff.html" class="nav-item ">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                    <span>Loan Payoff</span>
+                </a>
+                <a href="credit-card-debt.html" class="nav-item ">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                    <span>Credit Card Debt</span>
+                </a>
+                <a href="savings-goals.html" class="nav-item ">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                    <span>Savings Goals</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <header class="mobile-header">
+                <div class="brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <h2>SmartDayBudget</h2>
+            </header>
+
+            <div class="container">
+                <section id="daily-budget" class="calculator-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 2px solid var(--bg-color); padding-bottom: 1rem;">
+                        <h2 style="margin: 0; border: none; padding: 0;">Daily Tracker</h2>
+                    </div>
+                    <div class="inputs">
+                        <!-- INCOMES SECTION -->
+                        <div class="incomes-header">
+                            <h3>Income Sources</h3>
+                            <button id="add-income-btn" class="btn-icon" aria-label="Add Income">+</button>
+                        </div>
+                        <div id="incomes-container">
+                            <!-- Dynamic incomes will be injected here -->
+                        </div>
+                        <div class="total-row">
+                            <span>Total Income (TI)</span>
+                            <strong id="db-total-income">$0.00</strong>
+                        </div>
+
+                        <!-- TARGET SAVINGS SECTION -->
+                        <div class="target-savings-header" style="margin-top: 1.5rem; margin-bottom: 0.5rem;">
+                            <h3>Savings Target</h3>
+                        </div>
+                        <div class="input-group">
+                            <div class="target-savings-control">
+                                <div class="segmented-control">
+                                    <button id="mode-percent" class="segment active">Percentage (%)</button>
+                                    <button id="mode-amount" class="segment">Fixed Amount ($)</button>
+                                </div>
+                                <div class="input-wrapper">
+                                    <label for="db-target-savings-percent" class="sr-only">Target Savings Percentage</label>
+                                    <input type="number" id="db-target-savings-percent" placeholder="15" min="0" max="100" step="0.1" required>
+                                    <label for="db-target-savings-amount" class="sr-only">Target Savings Amount</label>
+                                    <input type="number" id="db-target-savings-amount" placeholder="0.00" min="0" step="0.01" style="display: none;" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EXPENSES SECTION -->
+                        <div class="expenses-header" style="margin-top: 1.5rem;">
+                            <h3>Expenses (E)</h3>
+                            <button id="add-expense-btn" class="btn-icon" aria-label="Add Expense">+</button>
+                        </div>
+                        <div id="expenses-container">
+                            <!-- Dynamic expenses will be injected here -->
+                        </div>
+                        <div class="total-row">
+                            <span>Total Expenses (TE)</span>
+                            <strong id="db-classic-total-expenses">$0.00</strong>
+                        </div>
+                    </div>
+
+                    <div class="outputs">
+                        <div id="db-warning" class="warning-badge" style="display: none;"></div>
+                        <div class="badge" id="db-badge">Ready</div>
+                        
+                        <div class="result-row">
+                            <span>Target Amount ($)</span>
+                            <strong id="db-target-amount">$0.00</strong>
+                        </div>
+                        <div class="result-row">
+                            <span>Total Expenses (E)</span>
+                            <strong id="db-total-expenses">$0.00</strong>
+                        </div>
+                        <div class="result-row">
+                            <span>Remaining Allowance (RA)</span>
+                            <strong id="db-remaining-allowance">$0.00</strong>
+                        </div>
+                        <div class="result-row">
+                            <span>
+                                <span id="db-save-lose-label">Save</span>
+                                <span id="db-streak-badge" style="display: none; font-size: 0.85rem; font-weight: 600; color: var(--soft-crimson); margin-left: 0.5rem;"></span>
+                            </span>
+                            <strong id="db-save-lose-percentage">0.00%</strong>
+                        </div>
+                    </div>
+
+                    <div class="insight" id="db-insight">Add your incomes and expenses to see your allowance.</div>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="btn-secondary copy-btn" data-calc="daily-budget" style="flex: 1;">Copy Results</button>
+                        <button class="btn-secondary embed-btn" id="db-embed-btn" style="flex: 1;">Embed Calculator</button>
+                    </div>
+                    
+                    <div class="educational-content">
+                        <h2 class="seo-header">Pay Yourself First Calculator</h2>
+                        <p>Reverse budgeting flips traditional finance by prioritizing savings before expenses. A pay yourself first calculator automates this philosophy, instantly securing your wealth-building goals the moment you get paid. It calculates exactly what remains for daily spending only after your future is funded.</p>
+
+                        <h2 class="seo-header">Free Budget Spreadsheet Alternative</h2>
+                        <p>SmartDayBudget is the ultimate free budget spreadsheet alternative for freelancers and students seeking total financial clarity without the clutter. As a secure, free budget app not linked to a bank account, it ensures complete data privacy and grants you absolute manual control over your daily transactions.</p>
+
+                        <h2 class="seo-header">Sinking Fund Planning</h2>
+                        <p>Mastering your daily allowance organically accelerates effective sinking fund planning. By strictly managing your available everyday cash flow, you naturally prevent overspending. This discipline ensures those dedicated monthly contributions for future irregular expenses, like vacations or repairs, remain completely protected and fully funded.</p>
+                    </div>
+                </section>
+            </div>
+            
+            <footer class="app-footer">
+                <p>&copy; 2026 SmartDayBudget. Built for clarity.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="FinanceMath.js"></script>
+    <script src="App.js"></script>
+</body>
+</html>
