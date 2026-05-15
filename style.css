@@ -624,6 +624,11 @@ input:focus, select:focus {
         align-items: center;
         justify-content: center;
     }
+
+    /* Hide desktop controls inside the mobile bottom navigation */
+    .sidebar-controls {
+        display: none !important;
+    }
 }
 
 /* Ad Slots & New Sections */
