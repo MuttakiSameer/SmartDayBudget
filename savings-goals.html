@@ -3,80 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Savings Goal Calculator | SmartDayBudget</title>
-    <meta name="description" content="Free savings goals calculator with multi-unit timeframe flexibility for precise sinking-fund planning.">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Savings Goal Calculator | SmartDayBudget">
-    <meta property="og:description" content="Free savings goals calculator with multi-unit timeframe flexibility for precise sinking-fund planning.">
-    <meta property="og:image" content="https://yoursite.com/preview.png">
-    <meta property="og:url" content="https://yoursite.com/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SmartDayBudget">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Free Savings Goal Calculator | How Long To Save? | SmartDayBudget</title>
+    <meta name="description" content="Calculate exactly how long it takes to reach any savings goal. Free savings calculator showing monthly targets and milestone dates.">
+    <link rel="canonical" href="https://smartdaybudget.com/savings-goals.html">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://smartdaybudget.com/savings-goals.html">
+    <meta property="og:title" content="Free Savings Goal Calculator | SmartDayBudget">
+    <meta property="og:description" content="Calculate exactly how long it takes to reach any savings goal. Free savings calculator, no sign-up required.">
+    <meta property="og:image" content="https://smartdaybudget.com/SmartDayBudget.png">
     <meta property="og:type" content="website">
-    
-    <!-- Canonical Link -->
-    <link rel="canonical" href="https://yoursite.com/">
-    
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Savings Goal Calculator | SmartDayBudget">
+    <meta name="twitter:description" content="Calculate exactly how long it takes to reach any savings goal. Free, no sign-up.">
+    <meta name="twitter:image" content="https://smartdaybudget.com/SmartDayBudget.png">
+
+    <!-- Fonts & Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- JSON-LD: WebApplication -->
     <script type="application/ld+json">
     {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": [
-        "SoftwareApplication",
-        "FinancialProduct"
-      ],
-      "name": "SmartDayBudget - Savings Goal Calculator",
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SmartDayBudget Savings Goal Calculator",
+      "url": "https://smartdaybudget.com/savings-goals.html",
+      "description": "Calculate exactly how long it takes to reach any savings goal.",
       "applicationCategory": "FinanceApplication",
-      "applicationSubCategory": "FinanceApplication",
-      "operatingSystem": "Web-based (cross-platform)",
+      "operatingSystem": "Web Browser",
       "isAccessibleForFree": true,
-      "softwareVersion": "1.0.0",
-      "author": {
-        "@type": "Organization",
-        "name": "SmartDayBudget"
-      },
-      "audience": {
-        "@type": "Audience",
-        "audienceType": "Freelancers, independent contractors, and students managing variable incomes."
-      },
-      "description": "Multi-unit timeframe flexibility (Days, Weeks, Months, Years) for precise sinking-fund planning.",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "142"
-      }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "publisher": { "@type": "Organization", "name": "SmartDayBudget", "url": "https://smartdaybudget.com" }
     }
-  ]
-}
     </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the 50/30/20 rule?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The 50/30/20 rule allocates 50% of after-tax income to needs (rent, food, utilities), 30% to wants (dining out, entertainment, subscriptions), and 20% to savings and debt repayment. It is a useful starting framework, though the exact percentages can be adjusted based on your income level and goals." }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I save or pay off debt first?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Build a small emergency fund first ($1,000–$2,000). Then aggressively pay off high-interest debt (credit cards above 15% APR). Once high-interest debt is cleared, resume saving aggressively. Low-interest debt (mortgages, student loans under 5%) can be paid on schedule while you save and invest simultaneously." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I stay motivated while saving toward a long goal?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Break the goal into milestones (25%, 50%, 75% complete). Automate your savings transfer so it requires no willpower. Track your progress visually. Celebrate milestones without breaking the budget. Keep the goal visible — a specific number and date is more motivating than a vague intention to 'save more'." }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Print CSS -->
+    <style>
+      @media print {
+        .sidebar, footer, .ad-slot, .share-section,
+        .seo-content, .related-calculators, .btn-pdf,
+        .email-capture { display: none !important; }
+        .calculator-card { box-shadow: none; border: 1px solid #ddd; }
+        body::before {
+          content: "SmartDayBudget.com — Free Savings Goal Calculator";
+          display: block; text-align: center;
+          font-size: 18px; font-weight: bold; margin-bottom: 20px;
+        }
+        body::after {
+          content: "Generated at smartdaybudget.com — Free, No Sign-Up, Complete Privacy";
+          display: block; text-align: center;
+          font-size: 12px; color: #666; margin-top: 20px;
+        }
+      }
+    </style>
 </head>
 <body>
     <div class="app-layout">
+        <!-- SIDEBAR NAV -->
         <aside class="sidebar">
             <div class="brand">
                 <div class="brand-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
-                <h2>SmartDayBudget</h2>
+                <span style="font-size:1.1rem;font-weight:700;color:var(--deep-navy);">SmartDayBudget</span>
             </div>
-                        <nav class="nav-menu">
-                <a href="index.html" class="nav-item ">
+
+            <div class="sidebar-controls">
+                <select id="currency-selector" onchange="setCurrency(this.value)" aria-label="Select currency">
+                    <option value="USD">$ USD</option>
+                    <option value="BDT">৳ BDT</option>
+                    <option value="GBP">£ GBP</option>
+                    <option value="EUR">€ EUR</option>
+                    <option value="INR">₹ INR</option>
+                    <option value="PKR">₨ PKR</option>
+                    <option value="NGN">₦ NGN</option>
+                </select>
+                <button id="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
                     <span>Daily Tracker</span>
                 </a>
-                <a href="compound-interest.html" class="nav-item ">
+                <a href="compound-interest.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                     <span>Compound Interest</span>
                 </a>
-                <a href="loan-payoff.html" class="nav-item ">
+                <a href="loan-payoff.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                     <span>Loan Payoff</span>
                 </a>
-                <a href="credit-card-debt.html" class="nav-item ">
+                <a href="credit-card-debt.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
                     <span>Credit Card Debt</span>
                 </a>
@@ -84,20 +150,60 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
                     <span>Savings Goals</span>
                 </a>
+                <a href="about.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <span>About</span>
+                </a>
             </nav>
         </aside>
 
         <main class="content-area">
+            <!-- Mobile Header -->
             <header class="mobile-header">
                 <div class="brand-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
-                <h2>SmartDayBudget</h2>
+                <span style="font-weight:700;font-size:1.1rem;">SmartDayBudget</span>
+                <div style="display:flex;gap:8px;margin-left:auto;">
+                    <select id="currency-selector-mobile" onchange="setCurrency(this.value)" style="font-size:12px;padding:4px;border-radius:6px;border:1px solid var(--border-color);">
+                        <option value="USD">$ USD</option>
+                        <option value="BDT">৳ BDT</option>
+                        <option value="GBP">£ GBP</option>
+                        <option value="EUR">€ EUR</option>
+                        <option value="INR">₹ INR</option>
+                        <option value="PKR">₨ PKR</option>
+                        <option value="NGN">₦ NGN</option>
+                    </select>
+                    <button onclick="toggleDarkMode()" style="background:none;border:1px solid var(--border-color);border-radius:8px;padding:4px 8px;cursor:pointer;">🌙</button>
+                </div>
             </header>
+
+            <!-- Page Header -->
+            <section class="page-header">
+                <h1>Free Savings Goal Calculator</h1>
+                <p>Enter your goal and timeframe to instantly see the exact monthly amount you need to save.</p>
+            </section>
+
+            <!-- Ad Slot 1: Top -->
+            <div class="ad-slot ad-top">
+                <!-- AdSense slot: Top Banner -->
+                <span>Advertisement</span>
+            </div>
 
             <div class="container">
                 <section id="savings-goal" class="calculator-card">
-                    <h2>Savings Goals</h2>
+
+                    <!-- How To Use -->
+                    <div class="how-to-use">
+                        <h2>How To Use This Calculator</h2>
+                        <ol>
+                            <li>Enter your <strong>Target Savings Goal</strong> — the total amount you want to reach</li>
+                            <li>Enter your <strong>Current Savings</strong> — what you already have saved toward this goal</li>
+                            <li>Enter your <strong>Timeframe</strong> and select the unit (days, weeks, months, or years)</li>
+                            <li>See instantly the exact monthly deposit required to hit your target</li>
+                        </ol>
+                    </div>
+
                     <div class="inputs">
                         <div class="input-group">
                             <label for="sg-goal">Target Savings Goal (G)</label>
@@ -121,30 +227,180 @@
                         </div>
                     </div>
 
+                    <!-- Results -->
                     <div class="outputs">
                         <div class="result-row">
                             <span>Required Monthly Deposit</span>
-                            <strong id="sg-deposit" class="positive">$0.00</strong>
+                            <strong id="sg-deposit" class="positive"><span class="currency-symbol">$</span>0.00</strong>
                         </div>
                     </div>
 
                     <div class="insight" id="sg-insight">Set your goal and figure out exactly what it takes to reach it.</div>
-                    <button class="btn-secondary copy-btn" data-calc="savings-goal">Copy Results</button>
 
-                    <div class="educational-content">
-                        <h4>Setting Smart Savings Goals</h4>
-                        <p>Breaking down a large goal into manageable monthly pieces makes it psychologically easier to achieve.</p>
+                    <!-- Chart -->
+                    <div class="chart-container" id="results-chart-container" style="display:none;">
+                        <canvas id="resultsChart" width="400" height="300"></canvas>
                     </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button class="btn-secondary copy-btn" data-calc="savings-goal">Copy Results</button>
+                        <button class="btn-pdf" onclick="savePDF()">⬇ Save as PDF</button>
+                    </div>
+
+                    <!-- Share Section -->
+                    <div class="share-section">
+                        <p>Found this helpful? Share it:</p>
+                        <button onclick="shareWhatsApp()" class="share-btn share-whatsapp">📱 WhatsApp</button>
+                        <button onclick="shareTwitter()" class="share-btn share-twitter">🐦 Share on X</button>
+                        <button onclick="shareFacebook()" class="share-btn share-facebook">📘 Facebook</button>
+                    </div>
+
+                    <!-- Ad Slot 2: Mid -->
+                    <div class="ad-slot ad-mid">
+                        <!-- AdSense slot: Mid Page -->
+                        <span>Advertisement</span>
+                    </div>
+
+                    <!-- Email Capture -->
+                    <div class="email-capture">
+                        <h3>Get Your Free Monthly Budget Reminder</h3>
+                        <p>One email per month with a practical budgeting tip. No spam. Unsubscribe anytime.</p>
+                        <div class="email-form">
+                            <input type="email" id="email-input" placeholder="Enter your email address" autocomplete="email">
+                            <button onclick="subscribeEmail()">Remind Me</button>
+                        </div>
+                        <p class="email-privacy">🔒 No spam. No data selling. Ever.</p>
+                    </div>
+
+                    <!-- SEO Content -->
+                    <section class="seo-content">
+                        <h2>How To Set a Realistic Savings Goal</h2>
+                        <p>A good <strong>savings goal calculator</strong> does two things: it tells you the required monthly deposit, and it tells you whether that deposit fits your budget. If the required amount is higher than you can afford, the answer is not to abandon the goal — it is to extend the timeline or start with a partial target.</p>
+                        <p>The key to a realistic savings goal is specificity. Not "I want to save money" but "I want to save $3,000 in 15 months." Specific goals with deadlines are measurable and actionable. This <strong>savings goal tracker free</strong> tool turns vague intentions into concrete monthly numbers.</p>
+
+                        <h2>Emergency Fund vs Savings Goal</h2>
+                        <p>An emergency fund is not a savings goal in the traditional sense — it is financial insurance. Financial experts recommend saving 3–6 months of essential expenses before pursuing other goals. Without an emergency fund, one unexpected car repair or medical bill will wipe out your progress on every other goal.</p>
+                        <p>Use this calculator to plan both: first target 3 months of expenses as your emergency fund, then layer in other goals like a holiday, a new device, or a house deposit. If you are also paying off debt, use the <a href="credit-card-debt.html">Credit Card Payoff Calculator</a> to sequence your priorities correctly.</p>
+
+                        <h2>How Long To Save For Common Goals</h2>
+
+                        <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;">
+                            <thead>
+                                <tr style="background:var(--bg-color);">
+                                    <th style="padding:10px;text-align:left;border:1px solid var(--border-color);">Goal</th>
+                                    <th style="padding:10px;text-align:left;border:1px solid var(--border-color);">Amount</th>
+                                    <th style="padding:10px;text-align:left;border:1px solid var(--border-color);">At $200/mo</th>
+                                    <th style="padding:10px;text-align:left;border:1px solid var(--border-color);">At $500/mo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding:10px;border:1px solid var(--border-color);">Emergency Fund</td>
+                                    <td style="padding:10px;border:1px solid var(--border-color);">$3,000</td>
+                                    <td style="padding:10px;border:1px solid var(--border-color);">15 months</td>
+                                    <td style="padding:10px;border:1px solid var(--border-color);">6 months</td>
+                                </tr>
+                                <tr style="background:var(--bg-color);">
+                                    <td style="padding:10px;border:1px solid var(--border-color);">MacBook / Laptop</td>
+                                    <td style="padding:10px;border:1px solid var(--border-color);">$1,300</td>
+                                    <td style="padding:10px;border:1px solid var(--border-color);">7 months</td>
+                                    <td style="padding:10px;border:1px solid var(--border-color);">3 months</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border:1px solid var(--border-color);">Used Car</td>
+                                    <td style="padding:10px;border:1px solid var(--border-color);">$5,000</td>
+                                    <td style="padding:10px;border:1px solid var(--border-color);">25 months</td>
+                                    <td style="padding:10px;border:1px solid var(--border-color);">10 months</td>
+                                </tr>
+                                <tr style="background:var(--bg-color);">
+                                    <td style="padding:10px;border:1px solid var(--border-color);">Holiday / Vacation</td>
+                                    <td style="padding:10px;border:1px solid var(--border-color);">$2,000</td>
+                                    <td style="padding:10px;border:1px solid var(--border-color);">10 months</td>
+                                    <td style="padding:10px;border:1px solid var(--border-color);">4 months</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h2>The 50/30/20 Rule Explained</h2>
+                        <p>The 50/30/20 rule is a simple framework for budgeting. Spend 50% of after-tax income on needs (rent, food, utilities, transport). Spend 30% on wants (dining out, streaming services, entertainment). Save and invest 20%.</p>
+                        <p>The 20% savings allocation is where your <strong>how long to save for</strong> calculations begin. If your take-home pay is $3,000/month, your savings budget is $600. Use this calculator to see how many goals you can fund simultaneously at that rate. Then use the <a href="index.html">Daily Budget Calculator</a> to manage the remaining $2,400 across needs and wants day by day.</p>
+
+                        <h2>Frequently Asked Questions</h2>
+
+                        <details>
+                            <summary>What is the 50/30/20 rule?</summary>
+                            <p>It allocates 50% of after-tax income to needs (rent, food, transport), 30% to wants (entertainment, dining out), and 20% to savings and debt repayment. It is a starting framework — adjust the percentages based on your income and cost of living in your city.</p>
+                        </details>
+
+                        <details>
+                            <summary>Should I save or pay off debt first?</summary>
+                            <p>Save a small emergency fund first ($1,000–$2,000). Then attack high-interest debt (above 15% APR) aggressively. Once cleared, return to building savings. Low-interest debt (mortgages, student loans under 5%) can be paid on schedule while you simultaneously save and invest.</p>
+                        </details>
+
+                        <details>
+                            <summary>How do I stay motivated while saving toward a long goal?</summary>
+                            <p>Break the goal into visible milestones: 25%, 50%, 75%, done. Automate the monthly transfer so it requires zero willpower. Celebrate each milestone in a small, budget-friendly way. Keep a visual tracker — a simple bar chart or number on your phone. Specific goals with exact dates are always more motivating than vague intentions.</p>
+                        </details>
+                    </section>
                 </section>
             </div>
-            
+
+            <!-- Related Calculators -->
+            <section class="related-calculators">
+                <h2>More Free Calculators</h2>
+                <div class="calculator-grid">
+                    <div class="calc-card">
+                        <div class="calc-card-icon">📊</div>
+                        <h3>Daily Budget</h3>
+                        <p>Calculate your daily spending allowance using reverse budgeting.</p>
+                        <a href="index.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">📈</div>
+                        <h3>Compound Interest</h3>
+                        <p>See how your savings grow exponentially with compound interest.</p>
+                        <a href="compound-interest.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">📄</div>
+                        <h3>Loan Payoff</h3>
+                        <p>See your monthly payment and total interest on any loan.</p>
+                        <a href="loan-payoff.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">💳</div>
+                        <h3>Credit Card Debt</h3>
+                        <p>Find your exact debt-free date and total interest cost.</p>
+                        <a href="credit-card-debt.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ad Slot 3: Bottom -->
+            <div class="ad-slot ad-bottom">
+                <!-- AdSense slot: Bottom Banner -->
+                <span>Advertisement</span>
+            </div>
+
+            <!-- Footer -->
             <footer class="app-footer">
-                <p>&copy; 2026 SmartDayBudget. Built for clarity.</p>
+                <div class="footer-links">
+                    <a href="index.html">Daily Tracker</a>
+                    <a href="compound-interest.html">Compound Interest</a>
+                    <a href="loan-payoff.html">Loan Payoff</a>
+                    <a href="credit-card-debt.html">Credit Card Debt</a>
+                    <a href="savings-goals.html">Savings Goals</a>
+                    <a href="about.html">About</a>
+                </div>
+                <p class="footer-tagline">Free financial calculators. No sign-up. No bank linking. Complete privacy.</p>
+                <p class="footer-copy">&copy; 2026 SmartDayBudget. Built for clarity.</p>
             </footer>
         </main>
     </div>
 
     <script src="FinanceMath.js"></script>
     <script src="App.js"></script>
+    <script src="upgrades.js"></script>
 </body>
 </html>

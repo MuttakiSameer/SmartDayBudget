@@ -3,76 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credit Card Debt Calculator | SmartDayBudget</title>
-    <meta name="description" content="Free credit card debt calculator to customize payoff timelines modeling the mathematical impact of extra payments to eliminate debt faster.">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Credit Card Debt Calculator | SmartDayBudget">
-    <meta property="og:description" content="Free credit card debt calculator to customize payoff timelines modeling the mathematical impact of extra payments to eliminate debt faster.">
-    <meta property="og:image" content="https://yoursite.com/preview.png">
-    <meta property="og:url" content="https://yoursite.com/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SmartDayBudget">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Free Credit Card Payoff Calculator | Destroy Your Debt | SmartDayBudget</title>
+    <meta name="description" content="See exactly how long it takes to pay off credit card debt and how much interest you will pay. Free calculator, no sign-up required.">
+    <link rel="canonical" href="https://smartdaybudget.com/credit-card-debt.html">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://smartdaybudget.com/credit-card-debt.html">
+    <meta property="og:title" content="Free Credit Card Payoff Calculator | SmartDayBudget">
+    <meta property="og:description" content="See exactly how long it takes to pay off credit card debt and your total interest cost. Free, no sign-up.">
+    <meta property="og:image" content="https://smartdaybudget.com/SmartDayBudget.png">
     <meta property="og:type" content="website">
-    
-    <!-- Canonical Link -->
-    <link rel="canonical" href="https://yoursite.com/">
-    
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Credit Card Payoff Calculator | SmartDayBudget">
+    <meta name="twitter:description" content="See how long to pay off credit card debt and total interest cost. Free, no sign-up required.">
+    <meta name="twitter:image" content="https://smartdaybudget.com/SmartDayBudget.png">
+
+    <!-- Fonts & Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- JSON-LD: WebApplication -->
     <script type="application/ld+json">
     {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": [
-        "SoftwareApplication",
-        "FinancialProduct"
-      ],
-      "name": "SmartDayBudget - Credit Card Debt Calculator",
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SmartDayBudget Credit Card Payoff Calculator",
+      "url": "https://smartdaybudget.com/credit-card-debt.html",
+      "description": "See exactly how long it takes to pay off credit card debt and how much interest you will pay.",
       "applicationCategory": "FinanceApplication",
-      "applicationSubCategory": "FinanceApplication",
-      "operatingSystem": "Web-based (cross-platform)",
+      "operatingSystem": "Web Browser",
       "isAccessibleForFree": true,
-      "softwareVersion": "1.0.0",
-      "author": {
-        "@type": "Organization",
-        "name": "SmartDayBudget"
-      },
-      "audience": {
-        "@type": "Audience",
-        "audienceType": "Freelancers, independent contractors, and students managing variable incomes."
-      },
-      "description": "Customized payoff timelines modeling the mathematical impact of extra payments to eliminate debt faster.",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "142"
-      }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "publisher": { "@type": "Organization", "name": "SmartDayBudget", "url": "https://smartdaybudget.com" }
     }
-  ]
-}
     </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a good credit card APR?",
+          "acceptedAnswer": { "@type": "Answer", "text": "In 2024–2025, average credit card APRs range from 20–28%. Anything under 20% is considered decent. APRs under 15% are excellent. If your card charges above 25%, prioritize paying it off aggressively or transferring the balance to a 0% APR card." }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use a balance transfer card to pay off credit card debt?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, if you qualify. A 0% APR balance transfer card means 100% of your monthly payment reduces the principal for the promotional period (typically 12–21 months). Watch for the balance transfer fee (usually 3–5%) and ensure you can pay off the balance before the promotional period ends." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much above the minimum payment should I pay?",
+          "acceptedAnswer": { "@type": "Answer", "text": "As much as you can possibly afford. The minimum payment is designed to keep you in debt for decades. A good rule of thumb: pay at least 3x the minimum. Even doubling the minimum can cut your payoff timeline by years and save hundreds in interest." }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Print CSS -->
+    <style>
+      @media print {
+        .sidebar, footer, .ad-slot, .share-section,
+        .seo-content, .related-calculators, .btn-pdf,
+        .email-capture, .affiliate-box { display: none !important; }
+        .calculator-card { box-shadow: none; border: 1px solid #ddd; }
+        body::before {
+          content: "SmartDayBudget.com — Free Credit Card Payoff Calculator";
+          display: block; text-align: center;
+          font-size: 18px; font-weight: bold; margin-bottom: 20px;
+        }
+        body::after {
+          content: "Generated at smartdaybudget.com — Free, No Sign-Up, Complete Privacy";
+          display: block; text-align: center;
+          font-size: 12px; color: #666; margin-top: 20px;
+        }
+      }
+    </style>
 </head>
 <body>
     <div class="app-layout">
+        <!-- SIDEBAR NAV -->
         <aside class="sidebar">
             <div class="brand">
                 <div class="brand-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
-                <h2>SmartDayBudget</h2>
+                <span style="font-size:1.1rem;font-weight:700;color:var(--deep-navy);">SmartDayBudget</span>
             </div>
-                        <nav class="nav-menu">
-                <a href="index.html" class="nav-item ">
+
+            <div class="sidebar-controls">
+                <select id="currency-selector" onchange="setCurrency(this.value)" aria-label="Select currency">
+                    <option value="USD">$ USD</option>
+                    <option value="BDT">৳ BDT</option>
+                    <option value="GBP">£ GBP</option>
+                    <option value="EUR">€ EUR</option>
+                    <option value="INR">₹ INR</option>
+                    <option value="PKR">₨ PKR</option>
+                    <option value="NGN">₦ NGN</option>
+                </select>
+                <button id="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
                     <span>Daily Tracker</span>
                 </a>
-                <a href="compound-interest.html" class="nav-item ">
+                <a href="compound-interest.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                     <span>Compound Interest</span>
                 </a>
-                <a href="loan-payoff.html" class="nav-item ">
+                <a href="loan-payoff.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                     <span>Loan Payoff</span>
                 </a>
@@ -80,24 +146,64 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
                     <span>Credit Card Debt</span>
                 </a>
-                <a href="savings-goals.html" class="nav-item ">
+                <a href="savings-goals.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
                     <span>Savings Goals</span>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <span>About</span>
                 </a>
             </nav>
         </aside>
 
         <main class="content-area">
+            <!-- Mobile Header -->
             <header class="mobile-header">
                 <div class="brand-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
-                <h2>SmartDayBudget</h2>
+                <span style="font-weight:700;font-size:1.1rem;">SmartDayBudget</span>
+                <div style="display:flex;gap:8px;margin-left:auto;">
+                    <select id="currency-selector-mobile" onchange="setCurrency(this.value)" style="font-size:12px;padding:4px;border-radius:6px;border:1px solid var(--border-color);">
+                        <option value="USD">$ USD</option>
+                        <option value="BDT">৳ BDT</option>
+                        <option value="GBP">£ GBP</option>
+                        <option value="EUR">€ EUR</option>
+                        <option value="INR">₹ INR</option>
+                        <option value="PKR">₨ PKR</option>
+                        <option value="NGN">₦ NGN</option>
+                    </select>
+                    <button onclick="toggleDarkMode()" style="background:none;border:1px solid var(--border-color);border-radius:8px;padding:4px 8px;cursor:pointer;">🌙</button>
+                </div>
             </header>
+
+            <!-- Page Header -->
+            <section class="page-header">
+                <h1>Free Credit Card Payoff Calculator</h1>
+                <p>Enter your balance, APR, and monthly payment to see your debt-free date and total interest cost.</p>
+            </section>
+
+            <!-- Ad Slot 1: Top -->
+            <div class="ad-slot ad-top">
+                <!-- AdSense slot: Top Banner -->
+                <span>Advertisement</span>
+            </div>
 
             <div class="container">
                 <section id="credit-card-debt" class="calculator-card">
-                    <h2>Credit Card Debt</h2>
+
+                    <!-- How To Use -->
+                    <div class="how-to-use">
+                        <h2>How To Use This Calculator</h2>
+                        <ol>
+                            <li>Enter your <strong>Current Balance</strong> — the full amount you owe</li>
+                            <li>Enter your card's <strong>APR</strong> (Annual Percentage Rate)</li>
+                            <li>Enter the <strong>Monthly Payment</strong> you plan to make</li>
+                            <li>See instantly how many months to payoff, your debt-free date, and total interest cost</li>
+                        </ol>
+                    </div>
+
                     <div class="inputs">
                         <div class="input-group">
                             <label for="cc-balance">Current Balance (B)</label>
@@ -113,35 +219,161 @@
                         </div>
                     </div>
 
+                    <!-- Results -->
                     <div class="outputs">
-                        <div id="cc-warning" class="warning-badge" style="display: none;"></div>
+                        <div id="cc-warning" class="warning-badge" style="display:none;"></div>
                         <div class="result-row">
                             <span>Months to Pay Off</span>
                             <strong id="cc-months">0</strong>
                         </div>
+                        <!-- UPGRADE 4: Debt-Free Date -->
+                        <div class="result-row">
+                            <span>Debt-Free Date</span>
+                            <strong id="debt-free-date" class="positive">—</strong>
+                        </div>
                         <div class="result-row">
                             <span>Total Interest Cost</span>
-                            <strong id="cc-interest" class="negative">$0.00</strong>
+                            <strong id="cc-interest" class="negative"><span class="currency-symbol">$</span>0.00</strong>
                         </div>
                     </div>
 
                     <div class="insight" id="cc-insight">Plan your path to becoming debt-free.</div>
-                    <button class="btn-secondary copy-btn" data-calc="credit-card-debt">Copy Results</button>
 
-                    <div class="educational-content">
-                        <h4>Managing Credit Card Debt</h4>
-                        <p>Paying only the minimum keeps you in debt longer. Increasing your monthly payment can save you thousands in interest.</p>
+                    <!-- Chart -->
+                    <div class="chart-container" id="results-chart-container" style="display:none;">
+                        <canvas id="resultsChart" width="400" height="300"></canvas>
                     </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button class="btn-secondary copy-btn" data-calc="credit-card-debt">Copy Results</button>
+                        <button class="btn-pdf" onclick="savePDF()">⬇ Save as PDF</button>
+                    </div>
+
+                    <!-- Share Section -->
+                    <div class="share-section">
+                        <p>Found this helpful? Share it:</p>
+                        <button onclick="shareWhatsApp()" class="share-btn share-whatsapp">📱 WhatsApp</button>
+                        <button onclick="shareTwitter()" class="share-btn share-twitter">🐦 Share on X</button>
+                        <button onclick="shareFacebook()" class="share-btn share-facebook">📘 Facebook</button>
+                    </div>
+
+                    <!-- Ad Slot 2: Mid -->
+                    <div class="ad-slot ad-mid">
+                        <!-- AdSense slot: Mid Page -->
+                        <span>Advertisement</span>
+                    </div>
+
+                    <!-- Affiliate Box -->
+                    <div class="affiliate-box">
+                        <p>⚡ <strong>Stop paying high interest.</strong><br>
+                        A 0% APR balance transfer card could save you the interest shown above. Compare cards:
+                        <a href="#" class="affiliate-link">[AFFILIATE LINK — INSERT LATER]</a></p>
+                    </div>
+
+                    <!-- Email Capture -->
+                    <div class="email-capture">
+                        <h3>Get Your Free Monthly Budget Reminder</h3>
+                        <p>One email per month with a practical budgeting tip. No spam. Unsubscribe anytime.</p>
+                        <div class="email-form">
+                            <input type="email" id="email-input" placeholder="Enter your email address" autocomplete="email">
+                            <button onclick="subscribeEmail()">Remind Me</button>
+                        </div>
+                        <p class="email-privacy">🔒 No spam. No data selling. Ever.</p>
+                    </div>
+
+                    <!-- SEO Content -->
+                    <section class="seo-content">
+                        <h2>Why Credit Card Interest Is So Dangerous</h2>
+                        <p>Credit cards typically charge 20–28% APR — far higher than any loan. At 24% APR, a $5,000 balance accumulates $100 in interest every single month. If you only pay the minimum ($100–$120), almost nothing goes toward your principal. This <strong>credit card payoff calculator</strong> makes that math visible and impossible to ignore.</p>
+
+                        <h2>Minimum Payments — The Debt Trap</h2>
+                        <p>Credit card minimum payments are deliberately designed to keep you in debt as long as possible. A $5,000 balance at 24% APR with a 2% minimum payment takes over 30 years to pay off and costs more in interest than the original balance.</p>
+                        <p>Use this <strong>credit card debt free date calculator</strong> to see exactly what your current payment schedule will cost you — then adjust the monthly payment field upward to see how much faster you can get free.</p>
+
+                        <h2>Avalanche vs Snowball Method</h2>
+                        <p>If you have multiple credit cards, choose a payoff strategy. <strong>Avalanche Method:</strong> Pay minimums on all cards, then put every extra dollar toward the card with the highest APR. This saves the most money mathematically.</p>
+                        <p><strong>Snowball Method:</strong> Pay minimums on all cards, then put every extra dollar toward the smallest balance. This provides faster psychological wins, which helps some people stay motivated. Both work — pick the one you'll actually stick to.</p>
+
+                        <h2>How To Use This Calculator</h2>
+                        <p>Enter your card's current balance, the APR from your statement, and the monthly payment you plan to make. The <strong>credit card payoff calculator</strong> will instantly show you how many months until your balance hits zero, your exact debt-free date, and the total interest you will pay at that payment amount.</p>
+                        <p>Try increasing your monthly payment by $50 or $100 to see how dramatically the timeline changes. Also use the <a href="index.html">Daily Budget Calculator</a> to find $50–$100 in your daily budget to redirect toward debt. Then plan your post-debt savings with the <a href="savings-goals.html">Savings Goal Calculator</a>.</p>
+
+                        <h2>Frequently Asked Questions</h2>
+
+                        <details>
+                            <summary>What is a good credit card APR?</summary>
+                            <p>Average APRs in 2024–2025 range from 20–28%. Under 20% is decent. Under 15% is excellent. Over 25% means you should aggressively pay down that card or transfer the balance to a 0% APR card immediately.</p>
+                        </details>
+
+                        <details>
+                            <summary>Should I use a balance transfer card?</summary>
+                            <p>Yes, if you qualify. A 0% APR balance transfer card means every payment goes to principal for the promotional period (12–21 months typically). Factor in the 3–5% transfer fee, and make sure you can pay off the balance before the promo period ends — otherwise the rate can jump to 25%+.</p>
+                        </details>
+
+                        <details>
+                            <summary>How much above the minimum should I pay?</summary>
+                            <p>As much as possible. A good minimum target is 3x the minimum payment. Even doubling the minimum can cut your <strong>how long to pay off credit card</strong> timeline by years. Use the calculator to test different payment amounts and find the one that fits your budget while getting you debt-free as fast as possible.</p>
+                        </details>
+                    </section>
                 </section>
             </div>
-            
+
+            <!-- Related Calculators -->
+            <section class="related-calculators">
+                <h2>More Free Calculators</h2>
+                <div class="calculator-grid">
+                    <div class="calc-card">
+                        <div class="calc-card-icon">📊</div>
+                        <h3>Daily Budget</h3>
+                        <p>Calculate your daily spending allowance using reverse budgeting.</p>
+                        <a href="index.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">📈</div>
+                        <h3>Compound Interest</h3>
+                        <p>See how your savings grow exponentially with compound interest.</p>
+                        <a href="compound-interest.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">📄</div>
+                        <h3>Loan Payoff</h3>
+                        <p>See your monthly payment and total interest on any loan.</p>
+                        <a href="loan-payoff.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">🎯</div>
+                        <h3>Savings Goals</h3>
+                        <p>Calculate exactly how much to save each month to hit your target.</p>
+                        <a href="savings-goals.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ad Slot 3: Bottom -->
+            <div class="ad-slot ad-bottom">
+                <!-- AdSense slot: Bottom Banner -->
+                <span>Advertisement</span>
+            </div>
+
+            <!-- Footer -->
             <footer class="app-footer">
-                <p>&copy; 2026 SmartDayBudget. Built for clarity.</p>
+                <div class="footer-links">
+                    <a href="index.html">Daily Tracker</a>
+                    <a href="compound-interest.html">Compound Interest</a>
+                    <a href="loan-payoff.html">Loan Payoff</a>
+                    <a href="credit-card-debt.html">Credit Card Debt</a>
+                    <a href="savings-goals.html">Savings Goals</a>
+                    <a href="about.html">About</a>
+                </div>
+                <p class="footer-tagline">Free financial calculators. No sign-up. No bank linking. Complete privacy.</p>
+                <p class="footer-copy">&copy; 2026 SmartDayBudget. Built for clarity.</p>
             </footer>
         </main>
     </div>
 
     <script src="FinanceMath.js"></script>
     <script src="App.js"></script>
+    <script src="upgrades.js"></script>
 </body>
 </html>

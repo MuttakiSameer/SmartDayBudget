@@ -3,72 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loan Payoff Calculator | SmartDayBudget</title>
-    <meta name="description" content="Free loan payoff calculator using amortization logic to optimize your repayment strategies and reduce total interest cost.">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Loan Payoff Calculator | SmartDayBudget">
-    <meta property="og:description" content="Free loan payoff calculator using amortization logic to optimize your repayment strategies and reduce total interest cost.">
-    <meta property="og:image" content="https://yoursite.com/preview.png">
-    <meta property="og:url" content="https://yoursite.com/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SmartDayBudget">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Free Loan Payoff Calculator | Find Your Debt-Free Date | SmartDayBudget</title>
+    <meta name="description" content="Calculate exactly when you will pay off your loan and how much total interest you will pay. Free, no sign-up required.">
+    <link rel="canonical" href="https://smartdaybudget.com/loan-payoff.html">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://smartdaybudget.com/loan-payoff.html">
+    <meta property="og:title" content="Free Loan Payoff Calculator | SmartDayBudget">
+    <meta property="og:description" content="Calculate exactly when you will pay off your loan and how much total interest you will pay. Free, no sign-up required.">
+    <meta property="og:image" content="https://smartdaybudget.com/SmartDayBudget.png">
     <meta property="og:type" content="website">
-    
-    <!-- Canonical Link -->
-    <link rel="canonical" href="https://yoursite.com/">
-    
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Loan Payoff Calculator | SmartDayBudget">
+    <meta name="twitter:description" content="Calculate exactly when you will pay off your loan and total interest paid. Free, no sign-up.">
+    <meta name="twitter:image" content="https://smartdaybudget.com/SmartDayBudget.png">
+
+    <!-- Fonts & Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- JSON-LD: WebApplication -->
     <script type="application/ld+json">
     {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": [
-        "SoftwareApplication",
-        "FinancialProduct"
-      ],
-      "name": "SmartDayBudget - Loan Payoff Calculator",
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SmartDayBudget Loan Payoff Calculator",
+      "url": "https://smartdaybudget.com/loan-payoff.html",
+      "description": "Calculate exactly when you will pay off your loan and how much total interest you will pay.",
       "applicationCategory": "FinanceApplication",
-      "applicationSubCategory": "FinanceApplication",
-      "operatingSystem": "Web-based (cross-platform)",
+      "operatingSystem": "Web Browser",
       "isAccessibleForFree": true,
-      "softwareVersion": "1.0.0",
-      "author": {
-        "@type": "Organization",
-        "name": "SmartDayBudget"
-      },
-      "audience": {
-        "@type": "Audience",
-        "audienceType": "Freelancers, independent contractors, and students managing variable incomes."
-      },
-      "description": "Amortization logic for optimizing repayment strategies and reducing total interest cost.",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "142"
-      }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "publisher": { "@type": "Organization", "name": "SmartDayBudget", "url": "https://smartdaybudget.com" }
     }
-  ]
-}
     </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I reduce the total interest I pay on a loan?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The most effective strategies are: (1) Make extra payments toward the principal whenever possible. (2) Refinance to a lower interest rate. (3) Choose a shorter loan term from the start. Even one extra payment per year can save hundreds in interest." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if I make extra loan payments?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Extra payments go directly toward the principal balance, which reduces the amount of interest you are charged in future months. This creates a compounding effect — each extra payment saves you more than just the interest on that dollar for one month." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a shorter loan term always better?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A shorter term means lower total interest but a higher monthly payment. It is better if you can comfortably afford the higher payment. If a higher payment strains your budget and risks default, a longer term with voluntary extra payments can be a safer middle ground." }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Print CSS -->
+    <style>
+      @media print {
+        .sidebar, footer, .ad-slot, .share-section,
+        .seo-content, .related-calculators, .btn-pdf,
+        .email-capture, .affiliate-box { display: none !important; }
+        .calculator-card { box-shadow: none; border: 1px solid #ddd; }
+        body::before {
+          content: "SmartDayBudget.com — Free Loan Payoff Calculator";
+          display: block; text-align: center;
+          font-size: 18px; font-weight: bold; margin-bottom: 20px;
+        }
+        body::after {
+          content: "Generated at smartdaybudget.com — Free, No Sign-Up, Complete Privacy";
+          display: block; text-align: center;
+          font-size: 12px; color: #666; margin-top: 20px;
+        }
+      }
+    </style>
 </head>
 <body>
     <div class="app-layout">
+        <!-- SIDEBAR NAV -->
         <aside class="sidebar">
             <div class="brand">
                 <div class="brand-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
-                <h2>SmartDayBudget</h2>
+                <span style="font-size:1.1rem;font-weight:700;color:var(--deep-navy);">SmartDayBudget</span>
             </div>
-                        <nav class="nav-menu">
-                <a href="index.html" class="nav-item ">
+
+            <div class="sidebar-controls">
+                <select id="currency-selector" onchange="setCurrency(this.value)" aria-label="Select currency">
+                    <option value="USD">$ USD</option>
+                    <option value="BDT">৳ BDT</option>
+                    <option value="GBP">£ GBP</option>
+                    <option value="EUR">€ EUR</option>
+                    <option value="INR">₹ INR</option>
+                    <option value="PKR">₨ PKR</option>
+                    <option value="NGN">₦ NGN</option>
+                </select>
+                <button id="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
                     <span>Daily Tracker</span>
                 </a>
-                <a href="compound-interest.html" class="nav-item ">
+                <a href="compound-interest.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                     <span>Compound Interest</span>
                 </a>
@@ -76,28 +142,68 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                     <span>Loan Payoff</span>
                 </a>
-                <a href="credit-card-debt.html" class="nav-item ">
+                <a href="credit-card-debt.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
                     <span>Credit Card Debt</span>
                 </a>
-                <a href="savings-goals.html" class="nav-item ">
+                <a href="savings-goals.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
                     <span>Savings Goals</span>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <span>About</span>
                 </a>
             </nav>
         </aside>
 
         <main class="content-area">
+            <!-- Mobile Header -->
             <header class="mobile-header">
                 <div class="brand-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
-                <h2>SmartDayBudget</h2>
+                <span style="font-weight:700;font-size:1.1rem;">SmartDayBudget</span>
+                <div style="display:flex;gap:8px;margin-left:auto;">
+                    <select id="currency-selector-mobile" onchange="setCurrency(this.value)" style="font-size:12px;padding:4px;border-radius:6px;border:1px solid var(--border-color);">
+                        <option value="USD">$ USD</option>
+                        <option value="BDT">৳ BDT</option>
+                        <option value="GBP">£ GBP</option>
+                        <option value="EUR">€ EUR</option>
+                        <option value="INR">₹ INR</option>
+                        <option value="PKR">₨ PKR</option>
+                        <option value="NGN">₦ NGN</option>
+                    </select>
+                    <button onclick="toggleDarkMode()" style="background:none;border:1px solid var(--border-color);border-radius:8px;padding:4px 8px;cursor:pointer;">🌙</button>
+                </div>
             </header>
+
+            <!-- Page Header -->
+            <section class="page-header">
+                <h1>Free Loan Payoff Calculator</h1>
+                <p>Enter your loan details to instantly see your monthly payment, total interest, and debt-free date.</p>
+            </section>
+
+            <!-- Ad Slot 1: Top -->
+            <div class="ad-slot ad-top">
+                <!-- AdSense slot: Top Banner -->
+                <span>Advertisement</span>
+            </div>
 
             <div class="container">
                 <section id="loan-amortization" class="calculator-card">
-                    <h2>Loan Payoff</h2>
+
+                    <!-- How To Use -->
+                    <div class="how-to-use">
+                        <h2>How To Use This Calculator</h2>
+                        <ol>
+                            <li>Enter your <strong>Loan Amount</strong> — the total balance remaining</li>
+                            <li>Enter the <strong>Annual Interest Rate</strong> from your lender</li>
+                            <li>Enter the <strong>Loan Term in Months</strong> (e.g., 60 months = 5 years)</li>
+                            <li>Instantly see your monthly payment, total interest paid, and total cost</li>
+                        </ol>
+                    </div>
+
                     <div class="inputs">
                         <div class="input-group">
                             <label for="la-amount">Loan Amount (L)</label>
@@ -113,38 +219,160 @@
                         </div>
                     </div>
 
+                    <!-- Results -->
                     <div class="outputs">
                         <div class="result-row">
                             <span>Monthly Payment (M)</span>
-                            <strong id="la-payment" class="negative">$0.00</strong>
+                            <strong id="la-payment" class="negative"><span class="currency-symbol">$</span>0.00</strong>
                         </div>
                         <div class="result-row">
                             <span>Total Interest Paid</span>
-                            <strong id="la-interest" class="negative">$0.00</strong>
+                            <strong id="la-interest" class="negative"><span class="currency-symbol">$</span>0.00</strong>
                         </div>
                         <div class="result-row">
                             <span>Total Cost of Loan</span>
-                            <strong id="la-total">$0.00</strong>
+                            <strong id="la-total"><span class="currency-symbol">$</span>0.00</strong>
                         </div>
                     </div>
 
                     <div class="insight" id="la-insight">Know exactly how much your loan will cost you over time.</div>
-                    <button class="btn-secondary copy-btn" data-calc="loan-amortization">Copy Results</button>
 
-                    <div class="educational-content">
-                        <h4>Understanding Amortization</h4>
-                        <p>Amortization spreads your loan into a series of fixed payments. Early payments cover mostly interest, while later ones pay down the principal.</p>
+                    <!-- Chart -->
+                    <div class="chart-container" id="results-chart-container" style="display:none;">
+                        <canvas id="resultsChart" width="400" height="300"></canvas>
                     </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button class="btn-secondary copy-btn" data-calc="loan-amortization">Copy Results</button>
+                        <button class="btn-pdf" onclick="savePDF()">⬇ Save as PDF</button>
+                    </div>
+
+                    <!-- Share Section -->
+                    <div class="share-section">
+                        <p>Found this helpful? Share it:</p>
+                        <button onclick="shareWhatsApp()" class="share-btn share-whatsapp">📱 WhatsApp</button>
+                        <button onclick="shareTwitter()" class="share-btn share-twitter">🐦 Share on X</button>
+                        <button onclick="shareFacebook()" class="share-btn share-facebook">📘 Facebook</button>
+                    </div>
+
+                    <!-- Ad Slot 2: Mid -->
+                    <div class="ad-slot ad-mid">
+                        <!-- AdSense slot: Mid Page -->
+                        <span>Advertisement</span>
+                    </div>
+
+                    <!-- Affiliate Box -->
+                    <div class="affiliate-box">
+                        <p>📉 <strong>Could you get a lower rate?</strong><br>
+                        Refinancing could save you hundreds. Compare loan rates:
+                        <a href="#" class="affiliate-link">[AFFILIATE LINK — INSERT LATER]</a></p>
+                    </div>
+
+                    <!-- Email Capture -->
+                    <div class="email-capture">
+                        <h3>Get Your Free Monthly Budget Reminder</h3>
+                        <p>One email per month with a practical budgeting tip. No spam. Unsubscribe anytime.</p>
+                        <div class="email-form">
+                            <input type="email" id="email-input" placeholder="Enter your email address" autocomplete="email">
+                            <button onclick="subscribeEmail()">Remind Me</button>
+                        </div>
+                        <p class="email-privacy">🔒 No spam. No data selling. Ever.</p>
+                    </div>
+
+                    <!-- SEO Content -->
+                    <section class="seo-content">
+                        <h2>How To Use This Loan Payoff Calculator</h2>
+                        <p>This <strong>loan payoff calculator</strong> uses the standard amortization formula to compute your exact monthly payment. Enter your loan balance, interest rate, and term in months. The calculator instantly shows your required monthly payment, total interest cost, and total repayment amount.</p>
+                        <p>Wondering <strong>how long to pay off loan</strong> balances with extra payments? Reduce the term field to see how a shorter timeline changes both your monthly payment and your total interest paid.</p>
+
+                        <h2>What Is Amortization?</h2>
+                        <p>Amortization is the process of paying off a loan through regular scheduled payments. Early payments are mostly interest. Later payments are mostly principal. This is why paying off a loan early can save a disproportionately large amount of interest — you eliminate months where most of your payment would have gone to the bank, not to reducing your debt.</p>
+
+                        <h2>3 Strategies To Pay Off Your Loan Faster</h2>
+                        <p><strong>1. Make bi-weekly payments.</strong> Instead of 12 monthly payments, you make 26 half-payments per year — effectively making one extra full payment annually with no change to your budget.</p>
+                        <p><strong>2. Round up your payment.</strong> If your payment is $347, pay $400. The extra $53 goes straight to principal every month. Over a 5-year loan, this can shave months off your timeline.</p>
+                        <p><strong>3. Apply windfalls to the principal.</strong> Tax refunds, bonuses, or side income applied directly to your loan balance eliminate future interest on that amount immediately.</p>
+
+                        <h2>Extra Payments — How Much Do They Help?</h2>
+                        <p>Consider a $20,000 auto loan at 7% over 60 months. Standard monthly payment: $396. <strong>Total interest paid on loan</strong>: $3,761. Add just $50/month extra: loan paid off 8 months early, interest saved: $492. Add $100/month: 13 months early, $816 saved.</p>
+                        <p>The impact compounds — each extra payment reduces the principal faster, which reduces future interest charged. Use this <a href="credit-card-debt.html">Credit Card Payoff Calculator</a> for high-interest debt first, then redirect that freed payment to your loan. Track your daily spending with the <a href="index.html">Daily Budget Calculator</a> to find room in your budget for extra payments.</p>
+
+                        <h2>Frequently Asked Questions</h2>
+
+                        <details>
+                            <summary>How do I reduce the total interest I pay?</summary>
+                            <p>Three main methods: (1) Make extra principal payments whenever possible. (2) Refinance to a lower interest rate — even 1–2% less can save thousands over a long loan term. (3) Choose a shorter loan term from the start, even if the monthly payment is higher.</p>
+                        </details>
+
+                        <details>
+                            <summary>What happens when I make extra loan payments?</summary>
+                            <p>Extra payments go directly to your principal balance, which reduces the amount of interest charged next month. This creates a snowball effect — each extra payment saves you more than just one month of interest on that dollar, because it reduces the principal used to calculate all future interest.</p>
+                        </details>
+
+                        <details>
+                            <summary>Is a shorter loan term always better?</summary>
+                            <p>A shorter term saves a large amount of interest but requires a higher monthly payment. If you can comfortably afford the higher payment, shorter is mathematically better. If the payment would strain your budget and risk default, a longer term with voluntary extra payments is a safer approach.</p>
+                        </details>
+                    </section>
                 </section>
             </div>
-            
+
+            <!-- Related Calculators -->
+            <section class="related-calculators">
+                <h2>More Free Calculators</h2>
+                <div class="calculator-grid">
+                    <div class="calc-card">
+                        <div class="calc-card-icon">📊</div>
+                        <h3>Daily Budget</h3>
+                        <p>Calculate your daily spending allowance using reverse budgeting.</p>
+                        <a href="index.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">📈</div>
+                        <h3>Compound Interest</h3>
+                        <p>See how your savings grow exponentially with compound interest.</p>
+                        <a href="compound-interest.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">💳</div>
+                        <h3>Credit Card Debt</h3>
+                        <p>Find your exact debt-free date and total interest cost.</p>
+                        <a href="credit-card-debt.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">🎯</div>
+                        <h3>Savings Goals</h3>
+                        <p>Calculate exactly how much to save each month to hit your target.</p>
+                        <a href="savings-goals.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ad Slot 3: Bottom -->
+            <div class="ad-slot ad-bottom">
+                <!-- AdSense slot: Bottom Banner -->
+                <span>Advertisement</span>
+            </div>
+
+            <!-- Footer -->
             <footer class="app-footer">
-                <p>&copy; 2026 SmartDayBudget. Built for clarity.</p>
+                <div class="footer-links">
+                    <a href="index.html">Daily Tracker</a>
+                    <a href="compound-interest.html">Compound Interest</a>
+                    <a href="loan-payoff.html">Loan Payoff</a>
+                    <a href="credit-card-debt.html">Credit Card Debt</a>
+                    <a href="savings-goals.html">Savings Goals</a>
+                    <a href="about.html">About</a>
+                </div>
+                <p class="footer-tagline">Free financial calculators. No sign-up. No bank linking. Complete privacy.</p>
+                <p class="footer-copy">&copy; 2026 SmartDayBudget. Built for clarity.</p>
             </footer>
         </main>
     </div>
 
     <script src="FinanceMath.js"></script>
     <script src="App.js"></script>
+    <script src="upgrades.js"></script>
 </body>
 </html>

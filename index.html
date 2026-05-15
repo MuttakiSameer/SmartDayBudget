@@ -1,127 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="SmartDayBudget.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Tracker | SmartDayBudget</title>
-    <meta name="description" content="Free daily budget tracker using reverse budgeting. Calculate your daily spending allowance easily.">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Daily Tracker | SmartDayBudget">
-    <meta property="og:description" content="Free daily budget tracker using reverse budgeting. Calculate your daily spending allowance easily.">
-    <meta property="og:image" content="https://yoursite.com/preview.png">
-    <meta property="og:url" content="https://yoursite.com/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SmartDayBudget">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="REPLACE_WITH_YOUR_VERIFICATION_CODE">
+
+    <title>Free Daily Budget Calculator | Pay Yourself First | SmartDayBudget</title>
+    <meta name="description" content="Free daily budget calculator using reverse budgeting. Calculate your daily spending allowance instantly. No sign-up, no bank linking, complete privacy.">
+    <link rel="canonical" href="https://smartdaybudget.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://smartdaybudget.com/">
+    <meta property="og:title" content="Free Daily Budget Calculator | SmartDayBudget">
+    <meta property="og:description" content="Free daily budget calculator. Calculate your daily spending allowance instantly. No sign-up required.">
+    <meta property="og:image" content="https://smartdaybudget.com/SmartDayBudget.png">
     <meta property="og:type" content="website">
-    
-    <!-- Canonical Link -->
-    <link rel="canonical" href="https://yoursite.com/">
-    
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Daily Budget Calculator | SmartDayBudget">
+    <meta name="twitter:description" content="Free daily budget calculator. Calculate your daily spending allowance instantly. No sign-up required.">
+    <meta name="twitter:image" content="https://smartdaybudget.com/SmartDayBudget.png">
+
+    <!-- Fonts & Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- JSON-LD: WebApplication -->
     <script type="application/ld+json">
     {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": [
-        "SoftwareApplication",
-        "FinancialProduct"
-      ],
-      "name": "SmartDayBudget - Daily Tracker",
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SmartDayBudget Daily Budget Calculator",
+      "url": "https://smartdaybudget.com/",
+      "description": "Free daily budget calculator using reverse budgeting. Calculate your daily spending allowance instantly.",
       "applicationCategory": "FinanceApplication",
-      "applicationSubCategory": "FinanceApplication",
-      "operatingSystem": "Web-based (cross-platform)",
+      "operatingSystem": "Web Browser",
       "isAccessibleForFree": true,
-      "softwareVersion": "1.0.0",
-      "author": {
-        "@type": "Organization",
-        "name": "SmartDayBudget"
-      },
-      "audience": {
-        "@type": "Audience",
-        "audienceType": "Freelancers, independent contractors, and students managing variable incomes."
-      },
-      "description": "Reverse Budgeting model using unique Save/Lose behavioral logic to prioritize a Target Savings Percentage and calculate a Daily Remaining Allowance, rejecting traditional profit/loss tracking.",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "142"
-      }
-    },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "publisher": { "@type": "Organization", "name": "SmartDayBudget", "url": "https://smartdaybudget.com" }
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
     {
+      "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is a reverse budget?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A reverse budget flips traditional budgeting by prioritizing your savings goals first. Instead of saving what is left over, you allocate a target savings percentage immediately, and the remainder becomes your daily spending allowance."
-          }
+          "name": "Is this daily budget calculator completely free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. SmartDayBudget is 100% free. No sign-up, no premium tier, no hidden fees. Use it unlimited times, forever." }
         },
         {
           "@type": "Question",
-          "name": "How do you calculate a daily spending allowance?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A daily spending allowance is calculated by taking your total income, subtracting your target savings amount and fixed expenses, and dividing the remaining balance by the number of days left in your budget period."
-          }
+          "name": "How is my daily spending allowance calculated?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Your daily allowance = (Total Income − Target Savings − Fixed Expenses) ÷ Days in the month. The pay yourself first method means savings come out first." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a sinking fund?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A sinking fund is money set aside each month for a specific future expense — like a vacation, car repair, or annual insurance premium. It prevents unexpected costs from breaking your budget." }
         }
       ]
     }
-  ]
-}
     </script>
+
+    <!-- Print CSS -->
+    <style>
+      @media print {
+        .sidebar, footer, .ad-slot, .share-section,
+        .seo-content, .related-calculators, .btn-pdf,
+        .hero-section, .email-capture, .embed-section,
+        .social-proof-bar, #results-chart-container { display: none !important; }
+        .calculator-card { box-shadow: none; border: 1px solid #ddd; }
+        body::before {
+          content: "SmartDayBudget.com — Free Budget Calculators";
+          display: block; text-align: center;
+          font-size: 18px; font-weight: bold; margin-bottom: 20px;
+        }
+        body::after {
+          content: "Generated at smartdaybudget.com — Free, No Sign-Up, Complete Privacy";
+          display: block; text-align: center;
+          font-size: 12px; color: #666; margin-top: 20px;
+        }
+      }
+    </style>
 </head>
 <body>
     <div class="app-layout">
+        <!-- SIDEBAR NAV -->
         <aside class="sidebar">
             <div class="brand">
                 <div class="brand-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
-                <h2>SmartDayBudget</h2>
+                <span style="font-size:1.1rem;font-weight:700;color:var(--deep-navy);">SmartDayBudget</span>
             </div>
-                        <nav class="nav-menu">
+
+            <!-- Sidebar Controls -->
+            <div class="sidebar-controls">
+                <select id="currency-selector" onchange="setCurrency(this.value)" aria-label="Select currency">
+                    <option value="USD">$ USD</option>
+                    <option value="BDT">৳ BDT</option>
+                    <option value="GBP">£ GBP</option>
+                    <option value="EUR">€ EUR</option>
+                    <option value="INR">₹ INR</option>
+                    <option value="PKR">₨ PKR</option>
+                    <option value="NGN">₦ NGN</option>
+                </select>
+                <button id="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
+            </div>
+
+            <nav class="nav-menu">
                 <a href="index.html" class="nav-item active">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
                     <span>Daily Tracker</span>
                 </a>
-                <a href="compound-interest.html" class="nav-item ">
+                <a href="compound-interest.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                     <span>Compound Interest</span>
                 </a>
-                <a href="loan-payoff.html" class="nav-item ">
+                <a href="loan-payoff.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                     <span>Loan Payoff</span>
                 </a>
-                <a href="credit-card-debt.html" class="nav-item ">
+                <a href="credit-card-debt.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
                     <span>Credit Card Debt</span>
                 </a>
-                <a href="savings-goals.html" class="nav-item ">
+                <a href="savings-goals.html" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
                     <span>Savings Goals</span>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <span>About</span>
                 </a>
             </nav>
         </aside>
 
         <main class="content-area">
+            <!-- Mobile Header -->
             <header class="mobile-header">
                 <div class="brand-icon">
-                    <img src="SmartDayBudget.png" alt="SmartDayBudget Logo" style="height: 24px; width: 24px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
-                <h2>SmartDayBudget</h2>
+                <span style="font-weight:700;font-size:1.1rem;">SmartDayBudget</span>
+                <div style="display:flex;gap:8px;margin-left:auto;">
+                    <select id="currency-selector-mobile" onchange="setCurrency(this.value)" style="font-size:12px;padding:4px;border-radius:6px;border:1px solid var(--border-color);">
+                        <option value="USD">$ USD</option>
+                        <option value="BDT">৳ BDT</option>
+                        <option value="GBP">£ GBP</option>
+                        <option value="EUR">€ EUR</option>
+                        <option value="INR">₹ INR</option>
+                        <option value="PKR">₨ PKR</option>
+                        <option value="NGN">₦ NGN</option>
+                    </select>
+                    <button onclick="toggleDarkMode()" style="background:none;border:1px solid var(--border-color);border-radius:8px;padding:4px 8px;cursor:pointer;">🌙</button>
+                </div>
             </header>
+
+            <!-- HERO SECTION (index.html only) -->
+            <section class="hero-section">
+                <h1>Free Daily Budget Calculator — Pay Yourself First</h1>
+                <p>The reverse budgeting calculator that puts your savings first. Know exactly what you can spend each day. No sign-up. No bank linking. Complete privacy.</p>
+                <div class="trust-badges">
+                    <span>✓ Free Forever</span>
+                    <span>✓ No Sign-Up</span>
+                    <span>✓ No Bank Linking</span>
+                    <span>✓ Complete Privacy</span>
+                </div>
+            </section>
+
+            <!-- SOCIAL PROOF BAR (index.html only) -->
+            <div class="social-proof-bar">
+                <div class="proof-item">
+                    <strong>5 Free Tools</strong>
+                    <span>No sign-up needed</span>
+                </div>
+                <div class="proof-item">
+                    <strong>100% Private</strong>
+                    <span>No bank linking ever</span>
+                </div>
+                <div class="proof-item">
+                    <strong>Works Globally</strong>
+                    <span>7 currencies supported</span>
+                </div>
+                <div class="proof-item">
+                    <strong>Free Forever</strong>
+                    <span>No hidden fees</span>
+                </div>
+            </div>
+
+            <!-- Ad Slot 1: Top -->
+            <div class="ad-slot ad-top">
+                <!-- AdSense slot: Top Banner -->
+                <!-- Replace with actual AdSense code when approved -->
+                <span>Advertisement</span>
+            </div>
 
             <div class="container">
                 <section id="daily-budget" class="calculator-card">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 2px solid var(--bg-color); padding-bottom: 1rem;">
-                        <h2 style="margin: 0; border: none; padding: 0;">Daily Tracker</h2>
+
+                    <!-- How To Use -->
+                    <div class="how-to-use">
+                        <h2>How To Use This Calculator</h2>
+                        <ol>
+                            <li>Enter all your income sources — salary, freelance, side hustle</li>
+                            <li>Set your <strong>savings target</strong> (percentage or fixed amount) — this is paid first</li>
+                            <li>Add your fixed monthly expenses — rent, utilities, subscriptions</li>
+                            <li>Read your <strong>daily spending allowance</strong> instantly below</li>
+                        </ol>
                     </div>
+
                     <div class="inputs">
                         <!-- INCOMES SECTION -->
                         <div class="incomes-header">
@@ -129,97 +241,371 @@
                             <button id="add-income-btn" class="btn-icon" aria-label="Add Income">+</button>
                         </div>
                         <div id="incomes-container">
-                            <!-- Dynamic incomes will be injected here -->
+                            <!-- Dynamic incomes injected here by App.js -->
                         </div>
                         <div class="total-row">
                             <span>Total Income (TI)</span>
-                            <strong id="db-total-income">$0.00</strong>
+                            <strong id="db-total-income"><span class="currency-symbol">$</span>0.00</strong>
                         </div>
 
                         <!-- TARGET SAVINGS SECTION -->
-                        <div class="target-savings-header" style="margin-top: 1.5rem; margin-bottom: 0.5rem;">
+                        <div class="target-savings-header" style="margin-top:1.5rem;margin-bottom:0.5rem;">
                             <h3>Savings Target</h3>
                         </div>
                         <div class="input-group">
                             <div class="target-savings-control">
                                 <div class="segmented-control">
                                     <button id="mode-percent" class="segment active">Percentage (%)</button>
-                                    <button id="mode-amount" class="segment">Fixed Amount ($)</button>
+                                    <button id="mode-amount" class="segment">Fixed Amount (<span class="currency-symbol">$</span>)</button>
                                 </div>
                                 <div class="input-wrapper">
                                     <label for="db-target-savings-percent" class="sr-only">Target Savings Percentage</label>
                                     <input type="number" id="db-target-savings-percent" placeholder="15" min="0" max="100" step="0.1" required>
                                     <label for="db-target-savings-amount" class="sr-only">Target Savings Amount</label>
-                                    <input type="number" id="db-target-savings-amount" placeholder="0.00" min="0" step="0.01" style="display: none;" required>
+                                    <input type="number" id="db-target-savings-amount" placeholder="0.00" min="0" step="0.01" style="display:none;" required>
                                 </div>
                             </div>
                         </div>
 
                         <!-- EXPENSES SECTION -->
-                        <div class="expenses-header" style="margin-top: 1.5rem;">
+                        <div class="expenses-header" style="margin-top:1.5rem;">
                             <h3>Expenses (E)</h3>
                             <button id="add-expense-btn" class="btn-icon" aria-label="Add Expense">+</button>
                         </div>
                         <div id="expenses-container">
-                            <!-- Dynamic expenses will be injected here -->
+                            <!-- Dynamic expenses injected here by App.js -->
                         </div>
                         <div class="total-row">
                             <span>Total Expenses (TE)</span>
-                            <strong id="db-classic-total-expenses">$0.00</strong>
+                            <strong id="db-classic-total-expenses"><span class="currency-symbol">$</span>0.00</strong>
                         </div>
                     </div>
 
+                    <!-- RESULTS -->
                     <div class="outputs">
-                        <div id="db-warning" class="warning-badge" style="display: none;"></div>
+                        <div id="db-warning" class="warning-badge" style="display:none;"></div>
                         <div class="badge" id="db-badge">Ready</div>
-                        
                         <div class="result-row">
-                            <span>Target Amount ($)</span>
-                            <strong id="db-target-amount">$0.00</strong>
+                            <span>Target Amount (<span class="currency-symbol">$</span>)</span>
+                            <strong id="db-target-amount"><span class="currency-symbol">$</span>0.00</strong>
                         </div>
                         <div class="result-row">
                             <span>Total Expenses (E)</span>
-                            <strong id="db-total-expenses">$0.00</strong>
+                            <strong id="db-total-expenses"><span class="currency-symbol">$</span>0.00</strong>
                         </div>
                         <div class="result-row">
                             <span>Remaining Allowance (RA)</span>
-                            <strong id="db-remaining-allowance">$0.00</strong>
+                            <strong id="db-remaining-allowance"><span class="currency-symbol">$</span>0.00</strong>
                         </div>
                         <div class="result-row">
                             <span>
                                 <span id="db-save-lose-label">Save</span>
-                                <span id="db-streak-badge" style="display: none; font-size: 0.85rem; font-weight: 600; color: var(--soft-crimson); margin-left: 0.5rem;"></span>
+                                <span id="db-streak-badge" style="display:none;font-size:0.85rem;font-weight:600;color:var(--soft-crimson);margin-left:0.5rem;"></span>
                             </span>
                             <strong id="db-save-lose-percentage">0.00%</strong>
                         </div>
                     </div>
 
                     <div class="insight" id="db-insight">Add your incomes and expenses to see your allowance.</div>
-                    <div style="display: flex; gap: 1rem;">
-                        <button class="btn-secondary copy-btn" data-calc="daily-budget" style="flex: 1;">Copy Results</button>
-                        <button class="btn-secondary embed-btn" id="db-embed-btn" style="flex: 1;">Embed Calculator</button>
-                    </div>
-                    
-                    <div class="educational-content">
-                        <h2 class="seo-header">Pay Yourself First Calculator</h2>
-                        <p>Reverse budgeting flips traditional finance by prioritizing savings before expenses. A pay yourself first calculator automates this philosophy, instantly securing your wealth-building goals the moment you get paid. It calculates exactly what remains for daily spending only after your future is funded.</p>
 
-                        <h2 class="seo-header">Free Budget Spreadsheet Alternative</h2>
-                        <p>SmartDayBudget is the ultimate free budget spreadsheet alternative for freelancers and students seeking total financial clarity without the clutter. As a secure, free budget app not linked to a bank account, it ensures complete data privacy and grants you absolute manual control over your daily transactions.</p>
-
-                        <h2 class="seo-header">Sinking Fund Planning</h2>
-                        <p>Mastering your daily allowance organically accelerates effective sinking fund planning. By strictly managing your available everyday cash flow, you naturally prevent overspending. This discipline ensures those dedicated monthly contributions for future irregular expenses, like vacations or repairs, remain completely protected and fully funded.</p>
+                    <!-- Chart -->
+                    <div class="chart-container" id="results-chart-container" style="display:none;">
+                        <canvas id="resultsChart" width="400" height="300"></canvas>
                     </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button class="btn-secondary copy-btn" data-calc="daily-budget">Copy Results</button>
+                        <button class="btn-secondary embed-btn" id="db-embed-btn">Embed Calculator</button>
+                        <button class="btn-pdf" onclick="savePDF()">⬇ Save as PDF</button>
+                    </div>
+
+                    <!-- Share Section -->
+                    <div class="share-section">
+                        <p>Found this helpful? Share it:</p>
+                        <button onclick="shareWhatsApp()" class="share-btn share-whatsapp">📱 WhatsApp</button>
+                        <button onclick="shareTwitter()" class="share-btn share-twitter">🐦 Share on X</button>
+                        <button onclick="shareFacebook()" class="share-btn share-facebook">📘 Facebook</button>
+                    </div>
+
+                    <!-- Ad Slot 2: Mid -->
+                    <div class="ad-slot ad-mid">
+                        <!-- AdSense slot: Mid Page -->
+                        <span>Advertisement</span>
+                    </div>
+
+                    <!-- Email Capture -->
+                    <div class="email-capture">
+                        <h3>Get Your Free Monthly Budget Reminder</h3>
+                        <p>One email per month with a practical budgeting tip. No spam. Unsubscribe anytime.</p>
+                        <div class="email-form">
+                            <input type="email" id="email-input" placeholder="Enter your email address" autocomplete="email">
+                            <button onclick="subscribeEmail()">Remind Me</button>
+                        </div>
+                        <p class="email-privacy">🔒 No spam. No data selling. Ever.</p>
+                    </div>
+
+                    <!-- SEO Content -->
+                    <section class="seo-content">
+                        <h2>What Is a Daily Budget Calculator?</h2>
+                        <p>A <strong>daily budget calculator</strong> is the fastest way to know exactly how much you can spend today. It takes your income, subtracts your savings and bills, then divides what remains by the days in your month. No spreadsheet. No guessing. Just your number.</p>
+                        <p>Unlike traditional budgeting apps, this <strong>reverse budgeting calculator</strong> does not require you to link your bank account. Everything runs in your browser. Nothing is ever stored on a server.</p>
+
+                        <h2>How Reverse Budgeting Works</h2>
+                        <p>Traditional budgeting says: earn, spend, save whatever is left. Reverse budgeting flips this. You set your savings target first — 10%, 20%, or a fixed amount. That money is "paid" to yourself immediately. The rest is your guilt-free spending pool.</p>
+                        <p>This <strong>pay yourself first calculator</strong> automates that logic in seconds. Enter your income. Set your savings target. See your <strong>daily spending allowance</strong>. Done.</p>
+
+                        <h2>Who Should Use This Calculator?</h2>
+                        <p>This <strong>daily budget calculator</strong> is perfect for freelancers, students, gig workers, and anyone with variable income. If your paycheck is not the same every month, traditional budgets break down. A daily allowance keeps you on track regardless of income swings.</p>
+                        <p>It also works well for people trying <a href="savings-goals.html">to hit a specific savings goal</a> or those tackling <a href="credit-card-debt.html">credit card debt</a> — because knowing your daily limit prevents overspending that derails your plan.</p>
+
+                        <h2>How To Calculate Your Daily Allowance</h2>
+                        <p>Formula: <code>Daily Allowance = (Income − Savings − Fixed Expenses) ÷ Days</code></p>
+                        <p>For example: Income $4,000 / month. Savings target 20% = $800. Rent + bills = $1,400. Remaining = $1,800 ÷ 30 days = <strong>$60 per day</strong> to spend freely.</p>
+                        <p>Our <strong>daily spending allowance calculator</strong> does this math automatically, live, as you type.</p>
+
+                        <h2>Frequently Asked Questions</h2>
+
+                        <details>
+                            <summary>Is this calculator completely free?</summary>
+                            <p>Yes. SmartDayBudget is 100% free. No sign-up, no account, no credit card. Use it as many times as you want, forever. It's supported by non-intrusive ads.</p>
+                        </details>
+
+                        <details>
+                            <summary>How is my daily spending allowance calculated?</summary>
+                            <p>Your allowance = (Total Income − Target Savings − Fixed Expenses) ÷ Days in the month. The pay yourself first principle means savings are deducted before you calculate what's left to spend.</p>
+                        </details>
+
+                        <details>
+                            <summary>What is a sinking fund and why does it matter?</summary>
+                            <p>A sinking fund is a dedicated savings pot for a specific future expense — like a holiday, car repair, or annual insurance bill. Instead of scrambling when the expense hits, you save a small amount each month. Use our <a href="savings-goals.html">Savings Goal Calculator</a> to calculate your exact monthly sinking fund deposit.</p>
+                        </details>
+                    </section>
                 </section>
             </div>
-            
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- FINANCIAL DASHBOARD                        -->
+            <!-- ═══════════════════════════════════════════ -->
+            <hr class="section-divider">
+            <h2 class="section-title">Financial Dashboard</h2>
+            <p class="section-subtitle">Track every transaction. Know your real financial position.</p>
+
+            <!-- Summary Cards -->
+            <div class="dashboard-cards">
+                <div class="dash-card positive">
+                    <div class="card-icon">💰</div>
+                    <div class="card-value" id="card-income">$0.00</div>
+                    <div class="card-label">Total Income</div>
+                </div>
+                <div class="dash-card negative">
+                    <div class="card-icon">📤</div>
+                    <div class="card-value" id="card-expenses">$0.00</div>
+                    <div class="card-label">Total Expenses</div>
+                </div>
+                <div class="dash-card" id="net-card">
+                    <div class="card-icon">⚖️</div>
+                    <div class="card-value" id="card-net">+$0.00</div>
+                    <div class="card-label">Net Position</div>
+                </div>
+                <div class="dash-card score" id="score-card">
+                    <div class="card-icon">🏆</div>
+                    <div class="card-value" id="card-score">0/100</div>
+                    <div class="card-label">Health Score</div>
+                </div>
+            </div>
+
+            <!-- Add Transaction Button -->
+            <button class="btn-add-transaction" id="openWizardBtn" onclick="openWizard()">+ Add Transaction</button>
+
+            <!-- Financial Tables -->
+            <div class="financial-tables">
+
+                <!-- Income Statement -->
+                <div class="table-section">
+                    <div class="table-header" onclick="toggleTable('income-table')">
+                        <h3>💰 Income Statement (P&amp;L)</h3>
+                        <div style="display:flex;align-items:center;gap:8px;">
+                            <button id="income-clear-btn" class="btn-clear-table" style="display:none;" onclick="event.stopPropagation();clearTable('income_statement','income-clear-btn')">Clear All</button>
+                            <span class="table-toggle" id="income-table-toggle">▾</span>
+                        </div>
+                    </div>
+                    <div class="table-body" id="income-table-body-wrap">
+                        <table>
+                            <thead><tr><th>Name</th><th>Amount</th><th>Type</th><th>Date</th><th></th></tr></thead>
+                            <tbody id="income-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Balance Sheet -->
+                <div class="table-section">
+                    <div class="table-header" onclick="toggleTable('balance-table')">
+                        <h3>🏦 Balance Sheet</h3>
+                        <div style="display:flex;align-items:center;gap:8px;">
+                            <button id="balance-clear-btn" class="btn-clear-table" style="display:none;" onclick="event.stopPropagation();clearTable('balance_sheet','balance-clear-btn')">Clear All</button>
+                            <span class="table-toggle" id="balance-table-toggle">▾</span>
+                        </div>
+                    </div>
+                    <div class="table-body" id="balance-table-body-wrap">
+                        <table>
+                            <thead><tr><th>Name</th><th>Amount</th><th>Type</th><th>Date</th><th></th></tr></thead>
+                            <tbody id="balance-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Cash Flow -->
+                <div class="table-section">
+                    <div class="table-header" onclick="toggleTable('cashflow-table')">
+                        <h3>📈 Cash Flow Statement</h3>
+                        <div style="display:flex;align-items:center;gap:8px;">
+                            <button id="cashflow-clear-btn" class="btn-clear-table" style="display:none;" onclick="event.stopPropagation();clearTable('cash_flow','cashflow-clear-btn')">Clear All</button>
+                            <span class="table-toggle" id="cashflow-table-toggle">▾</span>
+                        </div>
+                    </div>
+                    <div class="table-body" id="cashflow-table-body-wrap">
+                        <table>
+                            <thead><tr><th>Name</th><th>Amount</th><th>Type</th><th>Date</th><th></th></tr></thead>
+                            <tbody id="cashflow-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div><!-- end .financial-tables -->
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- WIZARD MODAL                               -->
+            <!-- ═══════════════════════════════════════════ -->
+            <div id="wizard-overlay" class="wizard-overlay" style="display:none;">
+                <div class="wizard-modal">
+
+                    <div class="wizard-progress">
+                        <div class="progress-bar" id="wizard-progress-bar" style="width:33%"></div>
+                    </div>
+                    <p class="step-indicator" id="step-indicator">Step 1 of 3</p>
+                    <button class="wizard-close" onclick="closeWizard()" aria-label="Close wizard">×</button>
+
+                    <!-- STEP 1 -->
+                    <div id="wizard-step-1" class="wizard-step active">
+                        <h2>What is this transaction?</h2>
+                        <p class="wizard-subtitle">Enter the basic details below.</p>
+                        <div class="wizard-field">
+                            <label for="txn-name">Transaction Name</label>
+                            <input type="text" id="txn-name" placeholder="e.g. Freelance payment, Rent, New laptop" autocomplete="off">
+                        </div>
+                        <div class="wizard-field">
+                            <label for="txn-amount">Amount</label>
+                            <div class="amount-input-wrapper">
+                                <span class="currency-symbol amount-prefix">$</span>
+                                <input type="number" id="txn-amount" placeholder="0.00" min="0" step="0.01">
+                            </div>
+                        </div>
+                        <button class="btn-wizard-next" onclick="wizardStep1Next()">Continue →</button>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div id="wizard-step-2" class="wizard-step">
+                        <h2>What best describes this transaction?</h2>
+                        <p class="wizard-subtitle">Choose the option that feels right. No accounting knowledge needed.</p>
+                        <div class="wizard-options">
+                            <button class="wizard-option" onclick="wizardStep2Select('income_statement')">
+                                <span class="option-icon">💰</span>
+                                <span class="option-title">Money I earned or an everyday expense</span>
+                                <span class="option-desc">Salary, freelance income, rent, groceries, bills, subscriptions</span>
+                            </button>
+                            <button class="wizard-option" onclick="wizardStep2Select('balance_sheet')">
+                                <span class="option-icon">🏦</span>
+                                <span class="option-title">A large asset I bought or a new debt</span>
+                                <span class="option-desc">Property, vehicle, equipment, bank loan, credit card balance</span>
+                            </button>
+                            <button class="wizard-option" onclick="wizardStep2Select('cash_flow')">
+                                <span class="option-icon">📈</span>
+                                <span class="option-title">An investment or loan repayment</span>
+                                <span class="option-desc">Stocks, savings account deposit, paying back a loan</span>
+                            </button>
+                        </div>
+                        <button class="btn-wizard-back" onclick="wizardGoBack(1)">← Back</button>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div id="wizard-step-3" class="wizard-step">
+                        <h2 id="step3-question">One last question...</h2>
+                        <p class="wizard-subtitle" id="step3-subtitle"></p>
+                        <div class="wizard-options" id="step3-options"></div>
+                        <button class="btn-wizard-back" onclick="wizardGoBack(2)">← Back</button>
+                    </div>
+
+                </div><!-- end .wizard-modal -->
+            </div><!-- end #wizard-overlay -->
+
+            <!-- Related Calculators -->
+            <section class="related-calculators">
+                <h2>More Free Calculators</h2>
+                <div class="calculator-grid">
+                    <div class="calc-card">
+                        <div class="calc-card-icon">📈</div>
+                        <h3>Compound Interest</h3>
+                        <p>See how your savings grow over time with the power of compounding.</p>
+                        <a href="compound-interest.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">📄</div>
+                        <h3>Loan Payoff</h3>
+                        <p>Calculate your monthly payment and total interest on any loan.</p>
+                        <a href="loan-payoff.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">💳</div>
+                        <h3>Credit Card Debt</h3>
+                        <p>See your debt-free date and total interest cost at a glance.</p>
+                        <a href="credit-card-debt.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">🎯</div>
+                        <h3>Savings Goals</h3>
+                        <p>Find out exactly how much to save monthly to hit any goal.</p>
+                        <a href="savings-goals.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Embed Section (index.html only) -->
+            <section class="embed-section">
+                <h2>Add This Calculator To Your Website — Free</h2>
+                <p>Are you a blogger, teacher, or content creator? Embed this free budget calculator on your site in 30 seconds.</p>
+                <div class="embed-code-box">
+                    <code id="embed-code">&lt;iframe src="https://smartdaybudget.com" width="100%" height="600" frameborder="0" title="Free Daily Budget Calculator"&gt;&lt;/iframe&gt;</code>
+                </div>
+                <button id="copy-embed-btn" onclick="copyEmbedCode()">Copy Embed Code</button>
+                <p class="embed-note">Free to use. No attribution required. Works on any website.</p>
+            </section>
+
+            <!-- Ad Slot 3: Bottom -->
+            <div class="ad-slot ad-bottom">
+                <!-- AdSense slot: Bottom Banner -->
+                <span>Advertisement</span>
+            </div>
+
+            <!-- Footer -->
             <footer class="app-footer">
-                <p>&copy; 2026 SmartDayBudget. Built for clarity.</p>
+                <div class="footer-links">
+                    <a href="index.html">Daily Tracker</a>
+                    <a href="compound-interest.html">Compound Interest</a>
+                    <a href="loan-payoff.html">Loan Payoff</a>
+                    <a href="credit-card-debt.html">Credit Card Debt</a>
+                    <a href="savings-goals.html">Savings Goals</a>
+                    <a href="about.html">About</a>
+                </div>
+                <p class="footer-tagline">Free financial calculators. No sign-up. No bank linking. Complete privacy.</p>
+                <p class="footer-copy">&copy; 2026 SmartDayBudget. Built for clarity.</p>
             </footer>
         </main>
     </div>
 
     <script src="FinanceMath.js"></script>
     <script src="App.js"></script>
+    <script src="upgrades.js"></script>
+    <script src="wizard.js"></script>
 </body>
 </html>

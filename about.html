@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SmartDayBudget">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>About SmartDayBudget — Free Private Finance Calculators</title>
+    <meta name="description" content="SmartDayBudget is a free, privacy-first personal finance calculator suite. No sign-up, no bank linking, no data stored. Built for freelancers, students, and anyone who wants simple budgeting.">
+    <link rel="canonical" href="https://smartdaybudget.com/about.html">
+
+    <meta property="og:url" content="https://smartdaybudget.com/about.html">
+    <meta property="og:title" content="About SmartDayBudget — Free Private Finance Calculators">
+    <meta property="og:description" content="SmartDayBudget is a free, privacy-first personal finance calculator suite. No sign-up, no bank linking.">
+    <meta property="og:image" content="https://smartdaybudget.com/SmartDayBudget.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About SmartDayBudget — Free Private Finance Calculators">
+    <meta name="twitter:description" content="Free, privacy-first personal finance calculators. No sign-up, no bank linking.">
+    <meta name="twitter:image" content="https://smartdaybudget.com/SmartDayBudget.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SmartDayBudget",
+      "url": "https://smartdaybudget.com",
+      "description": "Free, privacy-first personal finance calculators. No sign-up, no bank linking, no data stored.",
+      "sameAs": ["https://smartdaybudget.com"]
+    }
+    </script>
+
+    <style>
+      @media print {
+        .sidebar, footer, .ad-slot { display: none !important; }
+      }
+      .about-content {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 1rem 3rem;
+        font-size: 16px;
+        line-height: 1.8;
+        color: #333;
+      }
+      .about-content h1 {
+        font-size: 2rem;
+        color: var(--deep-navy, #1a237e);
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+      }
+      .about-content h2 {
+        font-size: 1.3rem;
+        color: var(--deep-navy, #1a237e);
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+        border: none;
+        padding: 0;
+      }
+      .about-content p { margin: 0 0 1rem; }
+      .about-content ul { padding-left: 1.5rem; }
+      .about-content li { margin-bottom: 0.5rem; }
+      .privacy-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 1.5rem 0;
+      }
+      .privacy-badge {
+        background: rgba(46,204,113,0.1);
+        color: #2e7d32;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+      .calculator-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 14px;
+        margin: 1.5rem 0;
+      }
+      .calc-list-item {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 16px;
+        border: 1px solid #e9ecef;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s, box-shadow 0.2s;
+        display: block;
+      }
+      .calc-list-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+        text-decoration: none;
+      }
+      .calc-list-item strong { display: block; color: var(--deep-navy, #1a237e); margin-bottom: 4px; }
+      .calc-list-item span { font-size: 13px; color: #666; }
+      body.dark-mode .about-content { color: #d0d0d0; }
+      body.dark-mode .about-content h1,
+      body.dark-mode .about-content h2 { color: #e0e0e0; }
+      body.dark-mode .calc-list-item { background: #1a1a1a; border-color: #333; }
+      body.dark-mode .calc-list-item strong { color: #90caf9; }
+      body.dark-mode .calc-list-item span { color: #aaa; }
+    </style>
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <span style="font-size:1.1rem;font-weight:700;color:var(--deep-navy);">SmartDayBudget</span>
+            </div>
+
+            <div class="sidebar-controls">
+                <select id="currency-selector" onchange="setCurrency(this.value)" aria-label="Select currency">
+                    <option value="USD">$ USD</option>
+                    <option value="BDT">৳ BDT</option>
+                    <option value="GBP">£ GBP</option>
+                    <option value="EUR">€ EUR</option>
+                    <option value="INR">₹ INR</option>
+                    <option value="PKR">₨ PKR</option>
+                    <option value="NGN">₦ NGN</option>
+                </select>
+                <button id="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                    <span>Daily Tracker</span>
+                </a>
+                <a href="compound-interest.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                    <span>Compound Interest</span>
+                </a>
+                <a href="loan-payoff.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                    <span>Loan Payoff</span>
+                </a>
+                <a href="credit-card-debt.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                    <span>Credit Card Debt</span>
+                </a>
+                <a href="savings-goals.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                    <span>Savings Goals</span>
+                </a>
+                <a href="about.html" class="nav-item active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <span>About</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <header class="mobile-header">
+                <div class="brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <span style="font-weight:700;font-size:1.1rem;">SmartDayBudget</span>
+                <button onclick="toggleDarkMode()" style="background:none;border:1px solid var(--border-color);border-radius:8px;padding:4px 8px;cursor:pointer;margin-left:auto;">🌙</button>
+            </header>
+
+            <div class="about-content">
+                <h1>About SmartDayBudget</h1>
+                <p style="font-size:1.1rem;color:#666;margin-bottom:1.5rem;">Free, private financial calculators. No sign-up. No bank linking. No data stored.</p>
+
+                <div class="privacy-badges">
+                    <span class="privacy-badge">✓ 100% Free</span>
+                    <span class="privacy-badge">✓ No Sign-Up</span>
+                    <span class="privacy-badge">✓ No Bank Linking</span>
+                    <span class="privacy-badge">✓ No Data Stored</span>
+                    <span class="privacy-badge">✓ Works Offline</span>
+                </div>
+
+                <h2>What Is SmartDayBudget?</h2>
+                <p>SmartDayBudget is a suite of five free personal finance calculators designed to give you clarity about your money in under one minute. No account needed. No financial data connected. No subscriptions.</p>
+                <p>Every calculation happens entirely in your browser. When you close the tab, nothing is retained on any server — because nothing was ever sent to one. Your numbers are yours alone.</p>
+
+                <h2>Our Privacy-First Philosophy</h2>
+                <p>Most personal finance apps ask you to connect your bank account. We believe that is unnecessary for the vast majority of budgeting tasks. You already know your income. You know your bills. You just need a fast, accurate tool to run the math.</p>
+                <p>SmartDayBudget was built on a simple conviction: <strong>great financial tools do not require access to your financial accounts.</strong> No bank linking. No OAuth. No stored credentials. No selling your data. Ever.</p>
+
+                <h2>Who Is This Built For?</h2>
+                <p>SmartDayBudget is built for anyone who wants clarity without complexity:</p>
+                <ul>
+                    <li><strong>Freelancers</strong> with irregular monthly income who need a flexible daily allowance calculator</li>
+                    <li><strong>Students</strong> managing limited budgets and building first-time savings habits</li>
+                    <li><strong>Anyone tackling debt</strong> who wants to see an exact payoff date and total interest cost</li>
+                    <li><strong>Long-term savers</strong> planning for a holiday, car, emergency fund, or retirement</li>
+                    <li><strong>Anyone</strong> who wants simple, honest financial math without an app subscription</li>
+                </ul>
+
+                <h2>The Pay Yourself First Philosophy</h2>
+                <p>Our flagship Daily Budget Calculator is built around the <strong>pay yourself first</strong> principle. Traditional budgets try to save whatever is left at the end of the month. Pay yourself first flips that: your savings target is treated as your most important bill, deducted from income before anything else is calculated.</p>
+                <p>What remains after savings and fixed expenses is your guilt-free daily spending allowance. Staying within that number means your financial future is secure — no matter how you spend the rest.</p>
+
+                <h2>Our Free Calculators</h2>
+                <div class="calculator-list">
+                    <a href="index.html" class="calc-list-item">
+                        <strong>📊 Daily Budget Tracker</strong>
+                        <span>Calculate your daily spending allowance using the reverse budgeting method.</span>
+                    </a>
+                    <a href="compound-interest.html" class="calc-list-item">
+                        <strong>📈 Compound Interest</strong>
+                        <span>See exactly how your savings grow over time through the power of compounding.</span>
+                    </a>
+                    <a href="loan-payoff.html" class="calc-list-item">
+                        <strong>📄 Loan Payoff</strong>
+                        <span>Calculate your monthly payment and total interest cost on any loan.</span>
+                    </a>
+                    <a href="credit-card-debt.html" class="calc-list-item">
+                        <strong>💳 Credit Card Debt</strong>
+                        <span>Find your exact debt-free date and see how much interest you will pay in total.</span>
+                    </a>
+                    <a href="savings-goals.html" class="calc-list-item">
+                        <strong>🎯 Savings Goals</strong>
+                        <span>Calculate exactly how much to save each month to hit any savings target.</span>
+                    </a>
+                </div>
+
+                <h2>Built With Simplicity In Mind</h2>
+                <p>SmartDayBudget is a static website — plain HTML, CSS, and JavaScript. No backend servers. No databases. No cloud infrastructure processing your data. This is by design: the simplest possible architecture is also the most private.</p>
+                <p>The site is hosted on GitHub Pages, which means it is fast, reliable, and free to operate — costs that would otherwise require subscriptions or premium tiers to cover.</p>
+            </div>
+
+            <!-- Ad Slot: Bottom -->
+            <div class="ad-slot ad-bottom" style="max-width:720px;margin:0 auto 2rem;">
+                <!-- AdSense slot: Bottom Banner -->
+                <span>Advertisement</span>
+            </div>
+
+            <footer class="app-footer">
+                <div class="footer-links">
+                    <a href="index.html">Daily Tracker</a>
+                    <a href="compound-interest.html">Compound Interest</a>
+                    <a href="loan-payoff.html">Loan Payoff</a>
+                    <a href="credit-card-debt.html">Credit Card Debt</a>
+                    <a href="savings-goals.html">Savings Goals</a>
+                    <a href="about.html">About</a>
+                </div>
+                <p class="footer-tagline">Free financial calculators. No sign-up. No bank linking. Complete privacy.</p>
+                <p class="footer-copy">&copy; 2026 SmartDayBudget. Built for clarity.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="upgrades.js"></script>
+</body>
+</html>
