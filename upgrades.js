@@ -37,14 +37,18 @@ function toggleDarkMode() {
   const isDark = document.body.classList.contains('dark-mode');
   localStorage.setItem('sdb_darkMode', isDark ? 'on' : 'off');
   const btn = document.getElementById('dark-mode-toggle');
+  const mobileBtn = document.getElementById('mobile-dark-mode-toggle');
   if (btn) btn.textContent = isDark ? '☀️' : '🌙';
+  if (mobileBtn) mobileBtn.textContent = isDark ? '☀️' : '🌙';
 }
 
 function initDarkMode() {
   if (localStorage.getItem('sdb_darkMode') === 'on') {
     document.body.classList.add('dark-mode');
     const btn = document.getElementById('dark-mode-toggle');
+    const mobileBtn = document.getElementById('mobile-dark-mode-toggle');
     if (btn) btn.textContent = '☀️';
+    if (mobileBtn) mobileBtn.textContent = '☀️';
   }
 }
 

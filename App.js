@@ -493,6 +493,30 @@ const initEmbedButtons = () => {
     }
 };
 
+// --- Inline JS Extracted Event Listeners ---
+const initGlobalEventListeners = () => {
+    // Dark Mode Toggles
+    const darkModeBtns = [document.getElementById('dark-mode-toggle'), document.getElementById('mobile-dark-mode-toggle')];
+    darkModeBtns.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', () => {
+                if (typeof toggleDarkMode === 'function') toggleDarkMode();
+            });
+        }
+    });
+
+    // Currency Selectors
+    const currencySelectors = [document.getElementById('currency-selector'), document.getElementById('currency-selector-mobile')];
+    currencySelectors.forEach(selector => {
+        if (selector) {
+            selector.addEventListener('change', (e) => {
+                if (typeof setCurrency === 'function') setCurrency(e.target.value);
+            });
+            selector.removeAttribute('onchange');
+        }
+    });
+};
+
 // Initialize App on DOM Content Loaded
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('daily-budget')) initDailyBudget();
@@ -503,4 +527,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initCopyButtons();
     initEmbedButtons();
     initNumberInputScrollFix();
+    initGlobalEventListeners();
 });

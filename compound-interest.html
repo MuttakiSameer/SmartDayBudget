@@ -32,17 +32,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
 
     <!-- JSON-LD: WebApplication -->
     <script type="application/ld+json">
@@ -126,7 +116,7 @@
                     <option value="PKR">₨ PKR</option>
                     <option value="NGN">₦ NGN</option>
                 </select>
-                <button id="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
+                <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
             </div>
 
             <nav class="nav-menu">
@@ -165,7 +155,7 @@
                 </div>
                 <span style="font-weight:700;font-size:1.1rem;">SmartDayBudget</span>
                 <div style="display:flex;gap:8px;margin-left:auto;">
-                    <select id="currency-selector-mobile" onchange="setCurrency(this.value)" style="font-size:12px;padding:4px;border-radius:6px;border:1px solid var(--border-color);">
+                    <select id="currency-selector-mobile" class="mobile-currency-selector" onchange="setCurrency(this.value)">
                         <option value="USD">$ USD</option>
                         <option value="BDT">৳ BDT</option>
                         <option value="GBP">£ GBP</option>
@@ -174,7 +164,7 @@
                         <option value="PKR">₨ PKR</option>
                         <option value="NGN">₦ NGN</option>
                     </select>
-                    <button onclick="toggleDarkMode()" style="background:none;border:1px solid var(--border-color);border-radius:8px;padding:4px 8px;cursor:pointer;">🌙</button>
+                    <button class="mobile-dark-mode-toggle" id="mobile-dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
                 </div>
             </header>
 
@@ -247,7 +237,7 @@
                     <div class="insight" id="ci-insight">Watch your money grow through the power of compounding.</div>
 
                     <!-- Chart -->
-                    <div class="chart-container" id="results-chart-container" style="display:none;">
+                    <div class="chart-container hidden" id="results-chart-container">
                         <canvas id="resultsChart" width="400" height="300"></canvas>
                     </div>
 
@@ -269,13 +259,6 @@
                     <div class="ad-slot ad-mid">
                         <!-- AdSense slot: Mid Page -->
                         <span>Advertisement</span>
-                    </div>
-
-                    <!-- Affiliate Box -->
-                    <div class="affiliate-box">
-                        <p>💰 <strong>Want to actually earn this interest?</strong><br>
-                        High-yield savings accounts currently offer 4–5% APY. Compare top options:
-                        <a href="#" class="affiliate-link">[AFFILIATE LINK — INSERT LATER]</a></p>
                     </div>
 
                     <!-- Email Capture -->
@@ -380,6 +363,8 @@
         </main>
     </div>
 
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <script src="FinanceMath.js"></script>
     <script src="App.js"></script>
     <script src="upgrades.js"></script>
