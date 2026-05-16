@@ -89,7 +89,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--deep-navy);
+    background: transparent;
     color: white;
     width: 40px;
     height: 40px;

@@ -68,11 +68,15 @@ const initDailyBudget = () => {
         if (AppState.targetSavingsMode === 'percent') {
             modePercentBtn.classList.add('active');
             modeAmountBtn.classList.remove('active');
+            percentInput.classList.remove('hidden');
+            amountInput.classList.add('hidden');
             percentInput.style.display = 'block';
             amountInput.style.display = 'none';
         } else {
             modeAmountBtn.classList.add('active');
             modePercentBtn.classList.remove('active');
+            amountInput.classList.remove('hidden');
+            percentInput.classList.add('hidden');
             amountInput.style.display = 'block';
             percentInput.style.display = 'none';
         }
@@ -119,6 +123,37 @@ const initDailyBudget = () => {
     
     expensesContainer.addEventListener('input', (e) => handleInputEvent(e, 'expenses'));
     expensesContainer.addEventListener('click', (e) => handleClickEvent(e, 'expenses'));
+
+    const handleKeyDownEvent = (e, type) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            if (e.target.classList.contains('item-name')) {
+                const nextInput = e.target.nextElementSibling;
+                if (nextInput && nextInput.classList.contains('item-amount')) {
+                    nextInput.focus();
+                }
+            } else if (e.target.classList.contains('item-amount')) {
+                if (type === 'incomes') {
+                    addIncomeBtn.click();
+                } else {
+                    addExpenseBtn.click();
+                }
+                
+                setTimeout(() => {
+                    const container = type === 'incomes' ? incomesContainer : expensesContainer;
+                    const rows = container.querySelectorAll('.expense-row');
+                    const newRow = rows[rows.length - 1];
+                    if (newRow) {
+                        const nameInput = newRow.querySelector('.item-name');
+                        if (nameInput) nameInput.focus();
+                    }
+                }, 0);
+            }
+        }
+    };
+
+    incomesContainer.addEventListener('keydown', (e) => handleKeyDownEvent(e, 'incomes'));
+    expensesContainer.addEventListener('keydown', (e) => handleKeyDownEvent(e, 'expenses'));
 
     // --- Dynamic Rendering ---
     const renderList = (type) => {
@@ -513,6 +548,28 @@ const initGlobalEventListeners = () => {
                 if (typeof setCurrency === 'function') setCurrency(e.target.value);
             });
             selector.removeAttribute('onchange');
+        }
+    });
+
+    // Global Enter-Key Navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const target = e.target;
+            if (target.tagName.toLowerCase() === 'input' || target.tagName.toLowerCase() === 'select') {
+                const calcCard = target.closest('.calculator-card');
+                if (calcCard) {
+                    if (target.closest('#incomes-container') || target.closest('#expenses-container')) {
+                        return; // Handled by Daily Tracker specific logic
+                    }
+                    e.preventDefault();
+                    const focusableElements = Array.from(calcCard.querySelectorAll('input, select'))
+                        .filter(el => !el.disabled && el.type !== 'hidden' && el.style.display !== 'none' && !el.classList.contains('hidden'));
+                    const index = focusableElements.indexOf(target);
+                    if (index > -1 && index < focusableElements.length - 1) {
+                        focusableElements[index + 1].focus();
+                    }
+                }
+            }
         }
     });
 };
