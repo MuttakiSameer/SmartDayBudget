@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SmartDayBudget">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Daily Budget Calculator for Uber Drivers</title>
+    <meta name="description" content="Uber driver not sure what you can spend today? Calculate your exact daily spending limit after fuel and fees instantly. Free. No signup. No bank linking.">
+    <link rel="canonical" href="https://smartdaybudget.com/daily-budget-calculator-uber-drivers.html">
+
+    <meta property="og:url" content="https://smartdaybudget.com/daily-budget-calculator-uber-drivers.html">
+    <meta property="og:title" content="Daily Budget Calculator for Uber Drivers">
+    <meta property="og:description" content="Uber driver not sure what you can spend today? Calculate your exact daily spending limit after fuel and fees instantly. Free. No signup. No bank linking.">
+    <meta property="og:image" content="https://smartdaybudget.com/SmartDayBudget.png">
+    <meta property="og:type" content="article">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <img src="SmartDayBudget.png" alt="SmartDayBudget Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                </div>
+                <span class="brand-name">SmartDayBudget</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                    <span>Daily Tracker</span>
+                </a>
+                <a href="compound-interest.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    <span>Compound Interest</span>
+                </a>
+                <a href="loan-payoff.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7h12m-3-1l-3 1m0 0l3 9a5.002 5.002 0 006.001 0M15 7l3 9m-3-9h-3M12 3v18M12 7h3"></path></svg>
+                    <span>Loan Payoff</span>
+                </a>
+                <a href="credit-card-debt.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                    <span>Credit Card Debt</span>
+                </a>
+                <a href="savings-goals.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                    <span>Savings Goals</span>
+                </a>
+                <a href="guides.html" class="nav-item active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <span>Guides</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content" style="overflow-y: auto; height: 100vh; -webkit-overflow-scrolling: touch;">
+            <header class="mobile-header">
+                <button id="sidebar-toggle" class="icon-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <div class="brand-icon" style="width:32px; height:32px;">
+                    <img src="SmartDayBudget.png" alt="SmartDayBudget Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 4px;">
+                </div>
+                <span class="brand-name">SmartDayBudget</span>
+                <button id="mobile-dark-mode-toggle" class="icon-btn">🌙</button>
+            </header>
+
+            <div class="breadcrumb" style="padding: 1rem 1.5rem 0; font-size: 0.9rem; color: #6C757D;">
+                <a href="index.html" style="color: var(--accent, #4f7df3); text-decoration: none;">Home</a>
+                <span>›</span>
+                <a href="guides.html" style="color: var(--accent, #4f7df3); text-decoration: none;">Guides</a>
+                <span>›</span>
+                <span>Uber Driver Allowance Guide</span>
+            </div>
+
+            <article class="blog-article-container">
+                <h1>How to Stop Running Out of Money Between Uber Payouts</h1>
+                <p>Driving for Uber means your income changes every single day, making it impossible to know what you can safely spend. Stop guessing your balance and struggling to cover bills. Use the free <a href="https://smartdaybudget.com">SmartDayBudget daily budget calculator for Uber drivers</a> to instantly find your exact daily spending limit and protect your hard-earned profits today.</p>
+
+                <h2>The Chaos of the Ride-Hail Rollercoaster</h2>
+                <p>Driving for Uber in a major city like Chicago or Manchester is a psychological mind game. One day you are hitting back-to-back surge pricing zones during morning rush hour, feeling like an absolute king. The next day, you sit in a supermarket car park for two hours without a single ping, watching your battery drain or your petrol gauge drop while idling.</p>
+                <p>The real trap is that your weekly payout looks massive on your phone screen, but that number is a lie. It doesn't account for the brutal reality of the gig economy: fuel costs eating your cash at the pump, tyre wear, and platform fees already shaved off. Because you get paid in erratic waves, you naturally overspend on high-surge weekends, only to find yourself short on Tuesday when the insurance bill hits. You aren't broke because you aren't working hard; you are broke because you're tracking your money by the week instead of by the day.</p>
+
+                <h2>The Ride-Share Reverse Budget Formula</h2>
+                <p>To survive as a driver, you cannot budget like a salaried worker. You have to run your car like a business using a daily allowance. Here is the exact daily math:</p>
+                <p>First, take your total gross earnings for the week. Next, subtract your weekly operating costs (fuel and a buffer for wear and tear). Then, subtract your fixed life bills (rent, food, insurance) and your savings goal. Finally, take whatever cash is left over and divide it by 7 days. That final number is your daily limit—the exact amount you can spend guilt-free today without ruining next week.</p>
+
+                <h2>A Real-World Driver Example</h2>
+                <p>Let’s look at a realistic weekly breakdown for an Uber driver in the US.</p>
+                <p><strong>Gross Income:</strong> You grind out a solid week and pull in $800 on the Uber app (with platform fees already deducted).</p>
+                <p><strong>Car Expenses:</strong> You spent $150 on fuel at the pump and want to set aside $50 for your next oil change and tyre rotation. That’s $200 in car costs.</p>
+                <p><strong>Fixed Life Bills:</strong> Your share of rent, smartphone bill, and groceries totals $350 per week.</p>
+                <p><strong>Savings:</strong> You commit to putting $40 straight into an emergency fund.</p>
+                <p><strong>The Math:</strong> Take your $800 income, minus $200 for the car, minus $350 for bills, and minus $40 for savings. You have exactly $210 left over for yourself.</p>
+                <p>Now, divide that $210 by 7 days.</p>
+                <p><strong>Your Daily Spending Limit:</strong> $30.00 per day.</p>
+                <p>If you buy lunch on the road and a coffee today for $15, you are perfectly on track. If you spend nothing today, that $30 rolls over to tomorrow, giving you $60 to spend freely on your day off!</p>
+
+                <div class="how-to-use" style="margin: 2rem 0; background: #f8f9fa; padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent, #4f7df3);">
+                    <blockquote style="margin:0; font-style: normal;">Skip the manual math. <a href="https://smartdaybudget.com" style="color: var(--accent, #4f7df3); font-weight:bold;">SmartDayBudget calculates your daily driver allowance instantly</a>. Free. No signup. Try it now.</blockquote>
+                </div>
+
+                <h2>Frequently Asked Questions</h2>
+                <h3>What should I do if I have an incredibly slow week?</h3>
+                <p>Don't panic or overcharge your credit cards. Immediately open the app and input your lower earnings. Your daily spending limit will automatically shrink to keep you safe. Surviving a slow week means knowing exactly how much you need to cut back on daily extras until the weekend surges return.</p>
+
+                <h3>How do I handle massive, unexpected car maintenance costs?</h3>
+                <p>Never let a flat tyre or brake change ruin your personal life. By using our daily budget calculator for Uber drivers and putting away a weekly maintenance buffer (like the $50 in our example), you will build a separate car fund. When repairs happen, pay it from that pot, leaving your daily spending limit untouched.</p>
+
+                <h3>Should gig workers save money differently than standard salaried employees?</h3>
+                <p>Yes. Salaried workers have predictable checks, but your income is volatile. You need a bigger cash cushion. Aim to save a small, fixed amount every single week—even just $20—until you have one month of living expenses saved up. This breaks the stressful cycle of driving stressed just to pay rent.</p>
+
+                <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--border-color, #e9ecef);">
+                <p style="text-align: center; font-size: 1.1rem;"><strong>Ready to take control of your hard-earned ride-share profits? <a href="https://smartdaybudget.com">Use the SmartDayBudget calculator right now</a> to instantly find your true daily spending number.</strong></p>
+            </article>
+
+            <section class="related-calculators" style="padding: 0 1.5rem 2rem;">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">More Free Calculators</h2>
+                <div class="calculator-grid">
+                    <div class="calc-card"><div class="calc-card-icon">📊</div><h3>Daily Budget</h3><p>Calculate your daily spending allowance using reverse budgeting.</p><a href="index.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a></div>
+                    <div class="calc-card"><div class="calc-card-icon">📈</div><h3>Compound Interest</h3><p>See how your savings grow exponentially with compound interest.</p><a href="compound-interest.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a></div>
+                    <div class="calc-card"><div class="calc-card-icon">📄</div><h3>Loan Payoff</h3><p>See your monthly payment and total interest on any loan.</p><a href="loan-payoff.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a></div>
+                    <div class="calc-card"><div class="calc-card-icon">💳</div><h3>Credit Card Debt</h3><p>Find your exact debt-free date and total interest cost.</p><a href="credit-card-debt.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a></div>
+                </div>
+            </section>
+
+            <footer class="app-footer">
+                <div class="footer-links">
+                    <a href="index.html">Daily Tracker</a>
+                    <a href="compound-interest.html">Compound Interest</a>
+                    <a href="loan-payoff.html">Loan Payoff</a>
+                    <a href="credit-card-debt.html">Credit Card Debt</a>
+                    <a href="savings-goals.html">Savings Goals</a>
+                    <a href="guides.html">Guides</a>
+                </div>
+                <p class="footer-tagline">Free financial calculators. No sign-up. No bank linking. Complete privacy.</p>
+                <p class="footer-copy">&copy; 2026 SmartDayBudget. Built for clarity.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="FinanceMath.js"></script>
+    <script src="App.js"></script>
+    <script src="upgrades.js"></script>
+</body>
+</html>

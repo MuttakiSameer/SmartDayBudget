@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SmartDayBudget">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Daily Spending Limit Calculator for Biweekly Pay</title>
+    <meta name="description" content="Getting paid every two weeks? Calculate your exact daily spending limit instantly. Free reverse budget calculator. No signup. No bank linking.">
+    <link rel="canonical" href="https://smartdaybudget.com/biweekly-pay-daily-budget-calculator.html">
+
+    <meta property="og:url" content="https://smartdaybudget.com/biweekly-pay-daily-budget-calculator.html">
+    <meta property="og:title" content="Daily Spending Limit Calculator for Biweekly Pay">
+    <meta property="og:description" content="Getting paid every two weeks? Calculate your exact daily spending limit instantly. Free reverse budget calculator. No signup. No bank linking.">
+    <meta property="og:image" content="https://smartdaybudget.com/SmartDayBudget.png">
+    <meta property="og:type" content="article">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <img src="SmartDayBudget.png" alt="SmartDayBudget Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                </div>
+                <span class="brand-name">SmartDayBudget</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                    <span>Daily Tracker</span>
+                </a>
+                <a href="compound-interest.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    <span>Compound Interest</span>
+                </a>
+                <a href="loan-payoff.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7h12m-3-1l-3 1m0 0l3 9a5.002 5.002 0 006.001 0M15 7l3 9m-3-9h-3M12 3v18M12 7h3"></path></svg>
+                    <span>Loan Payoff</span>
+                </a>
+                <a href="credit-card-debt.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                    <span>Credit Card Debt</span>
+                </a>
+                <a href="savings-goals.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                    <span>Savings Goals</span>
+                </a>
+                <a href="guides.html" class="nav-item active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <span>Guides</span>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <span>About</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content" style="overflow-y: auto; height: 100vh; -webkit-overflow-scrolling: touch;">
+            <header class="mobile-header">
+                <button id="sidebar-toggle" class="icon-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <div class="brand-icon" style="width:32px; height:32px;">
+                    <img src="SmartDayBudget.png" alt="SmartDayBudget Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 4px;">
+                </div>
+                <span class="brand-name">SmartDayBudget</span>
+                <button id="mobile-dark-mode-toggle" class="icon-btn">🌙</button>
+            </header>
+
+            <div class="breadcrumb" style="padding: 1rem 1.5rem 0; font-size: 0.9rem; color: #666;">
+                <a href="index.html" style="color: var(--accent, #4f7df3); text-decoration: none;">Home</a>
+                <span>›</span>
+                <a href="guides.html" style="color: var(--accent, #4f7df3); text-decoration: none;">Guides</a>
+                <span>›</span>
+                <span>Biweekly Pay Daily Budget</span>
+            </div>
+
+            <article class="blog-article-container">
+                <div class="article-body" style="line-height: 1.7; color: var(--text-main, #1a1a1a); font-size: 1.05rem;">
+                    
+                    <h1 style="font-size: 2.2rem; color: var(--deep-navy, #0A192F); margin-bottom: 1.5rem;">How to Stop Running Out of Money Before Payday</h1>
+                    <p>You get paid every other Friday. By the second Wednesday, you’re panicking, wondering if you can afford groceries. If you’re tired of the biweekly squeeze, you need to find your exact daily number. Stop guessing and use the free <a href="https://smartdaybudget.com">SmartDayBudget daily spending limit calculator biweekly pay</a> tool to take control of your money instantly.</p>
+
+                    <h2 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--deep-navy, #0A192F);">The Problem with the 14-Day Stretch</h2>
+                    <p>Getting paid every two weeks is an emotional rollercoaster. Payday Friday feels amazing—you pay your rent, stock up on groceries, order an Uber to meet friends downtown, and maybe even treat yourself to a nice dinner out. But then week two hits, and the money drains faster than expected.</p>
+                    <p>Between your Netflix and Spotify auto-renewing, a random Amazon purchase, and ordering takeout because you were too tired to cook, suddenly things are incredibly tight. You are living paycheck to paycheck not because you don't make enough money, but because a 14-day stretch is simply too long to mentally track. When you just look at one big lump sum in your checking account, you naturally overspend early on. By the time that second Thursday rolls around, you are eating cereal for dinner and praying an unexpected bill doesn't hit. To break this exhausting cycle, you have to shrink your timeline down to just 24 hours.</p>
+
+                    <h2 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--deep-navy, #0A192F);">The Biweekly Reverse Budget Formula</h2>
+                    <p>The secret to making your paycheck last all 14 days is breaking it down into a daily allowance. Here is the exact math to figure it out:</p>
+                    <p>First, take your take-home biweekly paycheck. Next, subtract the fixed bills that must be paid during this specific two-week pay period. Then, subtract the money you want to put into savings or use for debt payoff. Finally, take whatever cash is left over and divide it by 14 (the number of days until you get paid again). That final number is your daily allowance. It’s what you can spend guilt-free every single day.</p>
+
+                    <h2 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--deep-navy, #0A192F);">A Real-World Biweekly Example</h2>
+                    <p>Let’s look at a realistic example using a $2,800 biweekly paycheck.</p>
+                    <ul style="padding-left: 1.5rem; margin-bottom: 1rem;">
+                        <li><strong>Income:</strong> $2,800 deposited on Friday morning.</li>
+                        <li><strong>Fixed Expenses:</strong> Over the next 14 days, you owe $1,200 for rent, $200 for your share of the utilities, and $150 for various subscriptions (Netflix, gym, phone bill). That totals $1,550 in mandatory bills.</li>
+                        <li><strong>Savings:</strong> You commit to putting $250 straight into a high-yield savings account. (Not sure what your target should be? <a href="savings-goals.html">Use our Savings Goals Calculator</a> to figure it out).</li>
+                    </ul>
+                    <p><strong>The Math:</strong> Take your $2,800 income, minus $1,550 for bills, minus $250 for savings. You have $1,000 left over.</p>
+                    <p>Now, divide that $1,000 by 14 days.</p>
+                    <p><strong>Your Daily Limit:</strong> $71.42 per day.</p>
+                    <p>If you spend exactly $71 today on groceries and a coffee, you are perfectly on track. If you spend nothing today, you roll that $71 over to tomorrow, giving you over $142 to spend freely on the weekend!</p>
+
+                    <div class="how-to-use" style="margin: 2rem 0; background: #f8f9fa; padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent, #4f7df3);">
+                        <blockquote style="margin:0; font-style: normal;">Skip the manual math. <a href="https://smartdaybudget.com" style="color: var(--accent, #4f7df3); font-weight:bold;">SmartDayBudget's Daily Budget Calculator</a>. Free. No signup. Try it now.</blockquote>
+                    </div>
+
+                    <h2 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--deep-navy, #0A192F);">Frequently Asked Questions</h2>
+                    
+                    <h3 style="font-size: 1.2rem; margin-top: 1.5rem; color: var(--text-main);">What if I have three paychecks in one month?</h3>
+                    <p>Twice a year, biweekly workers get a "magic" third paycheck. Treat this as a massive bonus! Use your standard <strong>daily spending limit calculator biweekly pay</strong> math for your normal expenses, and throw that entire extra third paycheck directly at debt or into savings.</p>
+
+                    <h3 style="font-size: 1.2rem; margin-top: 1.5rem; color: var(--text-main);">Should I split my rent between both biweekly checks?</h3>
+                    <p>Yes, this is highly recommended. If rent is $1,200, set aside $600 from your first paycheck and $600 from your second. This prevents one paycheck from feeling painfully tight while the other feels artificially rich, keeping your daily limit consistent.</p>
+
+                    <h3 style="font-size: 1.2rem; margin-top: 1.5rem; color: var(--text-main);">What if I overspend my daily limit on the weekend?</h3>
+                    <p>Don't panic. If you blow past your limit on a Saturday night out, just recalculate on Sunday morning. Take whatever cash is left in your account, subtract any remaining bills, and divide by the days left until payday. Your daily limit will shrink, but you'll survive.</p>
+
+                    <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--border-color, #e9ecef);">
+                    
+                    <p style="text-align: center; font-size: 1.1rem;"><strong>Ready to break the paycheck-to-paycheck cycle? <a href="https://smartdaybudget.com">Use the SmartDayBudget calculator right now</a> to instantly find your exact daily spending number.</strong></p>
+                </div>
+            </article>
+
+            <section class="related-calculators">
+                <h2>More Free Calculators</h2>
+                <div class="calculator-grid">
+                    <div class="calc-card">
+                        <div class="calc-card-icon">📊</div>
+                        <h3>Daily Budget</h3>
+                        <p>Calculate your daily spending allowance using reverse budgeting.</p>
+                        <a href="index.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">📈</div>
+                        <h3>Compound Interest</h3>
+                        <p>See how your savings grow exponentially with compound interest.</p>
+                        <a href="compound-interest.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">📄</div>
+                        <h3>Loan Payoff</h3>
+                        <p>See your monthly payment and total interest on any loan.</p>
+                        <a href="loan-payoff.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                    <div class="calc-card">
+                        <div class="calc-card-icon">💳</div>
+                        <h3>Credit Card Debt</h3>
+                        <p>Find your exact debt-free date and total interest cost.</p>
+                        <a href="credit-card-debt.html" class="btn-secondary" style="display:block;text-align:center;text-decoration:none;margin-top:12px;">Use Calculator</a>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="app-footer">
+                <div class="footer-links">
+                    <a href="index.html">Daily Tracker</a>
+                    <a href="compound-interest.html">Compound Interest</a>
+                    <a href="loan-payoff.html">Loan Payoff</a>
+                    <a href="credit-card-debt.html">Credit Card Debt</a>
+                    <a href="savings-goals.html">Savings Goals</a>
+                    <a href="guides.html">Guides</a>
+                    <a href="about.html">About</a>
+                </div>
+                <p class="footer-tagline">Free financial calculators. No sign-up. No bank linking. Complete privacy.</p>
+                <p class="footer-copy">&copy; 2026 SmartDayBudget. Built for clarity.</p>
+            </footer>
+        </main>
+    </div>
+    <script src="FinanceMath.js"></script>
+    <script src="App.js"></script>
+    <script src="upgrades.js"></script>
+</body>
+</html>
