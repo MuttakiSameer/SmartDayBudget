@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Navbar scroll shadow
   const sidebar = document.querySelector('.sidebar');
-  const contentArea = document.querySelector('.content-area');
+  const contentArea = document.querySelector('.content-area') || document.querySelector('.main-content');
   if (contentArea && sidebar) {
     contentArea.addEventListener('scroll', () => {
       if (contentArea.scrollTop > 10) {

@@ -55,8 +55,9 @@ body {
 /* App Layout */
 .app-layout {
     display: flex;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
 }
 
 /* Sidebar */
@@ -133,10 +134,8 @@ body {
 }
 
 /* Main Content Area */
-.content-area {
+.content-area, .main-content {
     flex-grow: 1;
-    overflow-y: auto;
-    scroll-behavior: smooth;
     padding: 3rem;
     position: relative;
 }
@@ -464,8 +463,11 @@ input:focus, select:focus {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .app-layout {
-        flex-direction: column;
-    }
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
     
     /* 1. Structural Transformation (Navigation) */
     .sidebar {
@@ -519,10 +521,10 @@ input:focus, select:focus {
         color: var(--deep-navy) !important; /* Active icon color */
     }
 
-    /* 2. Layout & Content Area */
-    .content-area {
-        padding: 0; /* Let container expand 100% */
-        padding-bottom: 90px; /* Space for the bottom nav bar */
+    /* 2. Layout & Content Area Mobile Overrides */
+    .content-area, .main-content {
+        padding: 1.25rem 16px !important;
+        padding-bottom: 110px !important; /* Spacious cushion so the fixed bottom nav bar never covers text or buttons */
     }
     
     .container {
@@ -703,9 +705,10 @@ body.embed-mode .educational-content,
 body.embed-mode .app-footer {
     display: none !important;
 }
-body.embed-mode .content-area {
-    padding: 0 !important;
-    overflow: hidden !important;
+body.embed-mode .content-area, .main-content {
+    flex-grow: 1;
+    padding: 3rem;
+    position: relative;
 }
 body.embed-mode .container {
     max-width: 100% !important;
@@ -1062,119 +1065,12 @@ details[open] summary::before { content: '▼ '; }
 
 /* ── MOBILE ───────────────────────────────────────────────── */
 @media (max-width: 480px) {
-  .hero-section h1 { font-size: 1.5rem; }
-  .calculator-grid { grid-template-columns: 1fr 1fr; }
-  .share-btn { padding: 8px 12px; font-size: 12px; }
-  .email-form { flex-direction: column; }
-  .email-form input,
-  .email-form button { width: 100%; min-width: unset; }
-  .embed-section { padding: 20px 16px; }
-  .action-buttons { flex-direction: column; }
-  .action-buttons .btn-secondary,
-  .action-buttons .btn-pdf { width: 100%; text-align: center; }
-  .seo-content { font-size: 15px; }
-  .seo-content h2 { font-size: 18px; }
-  .timeframe-input-wrapper { flex-direction: column; }
-  .timeframe-input-wrapper select { flex: unset; }
-  table { font-size: 12px; }
-  table th, table td { padding: 7px 6px; }
-}
-
-/* ── CTA CALLOUT BOX ──────────────────────────────────────── */
-.cta-callout-box {
-  background: linear-gradient(135deg, #eef3ff 0%, #f0f9ff 100%);
-  border-left: 4px solid #4f7df3;
-  border-radius: 10px;
-  padding: 1.25rem 1.5rem;
-  margin: 2rem 0;
-}
-
-.cta-callout-box blockquote {
-  margin: 0;
-  font-size: 1.05rem;
-  font-weight: 500;
-  line-height: 1.7;
-  color: #0A192F;
-  font-style: normal;
-}
-
-.cta-callout-box blockquote a {
-  color: #4f7df3;
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-body.dark-mode .cta-callout-box {
-  background: linear-gradient(135deg, #1e2530 0%, #17202a 100%);
-  border-left-color: #4f7df3;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
-  border-right: 1px solid #333;
-}
-
-body.dark-mode .cta-callout-box blockquote {
-  color: #e0e6ed;
-}
-
-body.dark-mode .cta-callout-box blockquote strong {
-  color: #fff;
+    color: #ffffff;
 }
 
 /* ================================================================
    NEW: MODERN ARTICLE BLOG LAYOUT (MEDIUM STYLE)
    ================================================================ */
-.blog-article-container {
-    background: #ffffff;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 3rem 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(10, 25, 47, 0.02);
-    line-height: 1.8;
-    color: var(--text-main, #1a1a1a);
-    font-size: 1.1rem;
-}
-
-.blog-article-container h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--deep-navy, #0A192F);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-}
-
-.blog-article-container h2 {
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--deep-navy, #0A192F);
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-.blog-article-container h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--text-main, #1a1a1a);
-    margin-top: 1.8rem;
-    margin-bottom: 0.75rem;
-}
-
-.blog-article-container p {
-    margin-bottom: 1.5rem;
-}
-
-.blog-article-container ul {
-    padding-left: 1.75rem;
-    margin-bottom: 1.5rem;
-}
-
-.blog-article-container li {
-    margin-bottom: 0.5rem;
-}
-
 .blog-article-container a {
     color: #4f7df3;
     text-decoration: underline;
@@ -1211,20 +1107,26 @@ body.dark-mode .blog-article-container a:hover {
     color: #ffffff;
 }
 
-@media (max-width: 768px) {
-    .blog-article-container {
-        margin: 1rem;
-        padding: 2rem 1.25rem;
-        font-size: 1.05rem;
-    }
-    .blog-article-container h1 {
-        font-size: 2rem;
-    }
-    .blog-article-container h2 {
-        font-size: 1.5rem;
-    }
+.blog-article-container {
+    background: #ffffff;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(10, 25, 47, 0.02);
+    line-height: 1.8;
+    color: var(--text-main, #1a1a1a);
+    font-size: 1.1rem;
 }
+.blog-article-container h1 { font-size: 2.5rem; font-weight: 700; color: var(--deep-navy, #0A192F); margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+.blog-article-container h2 { font-size: 1.75rem; font-weight: 600; color: var(--deep-navy, #0A192F); margin-top: 2.5rem; margin-bottom: 1rem; }
+.blog-article-container h3 { font-size: 1.3rem; font-weight: 600; color: var(--text-main, #1a1a1a); margin-top: 1.8rem; margin-bottom: 0.75rem; }
+.blog-article-container p { margin-bottom: 1.5rem; }
+.blog-article-container ul { padding-left: 1.75rem; margin-bottom: 1.5rem; }
+.blog-article-container li { margin-bottom: 0.5rem; }
 
-
-
-
+@media (max-width: 768px) {
+    .blog-article-container { margin: 1rem; padding: 2rem 1.25rem; font-size: 1.05rem; }
+    .blog-article-container h1 { font-size: 2rem; }
+    .blog-article-container h2 { font-size: 1.5rem; }
+}
