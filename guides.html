@@ -7,17 +7,9 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="SmartDayBudget">
     <meta name="theme-color" content="#ffffff">
-
     <title>SmartDayBudget Guides — Free Financial Planning & Budgeting Tips</title>
     <meta name="description" content="Read free budgeting guides and personal finance tips from SmartDayBudget. Learn reverse budgeting, how to make your pay last, and how to manage daily spending limits.">
     <link rel="canonical" href="https://smartdaybudget.com/guides.html">
-
-    <meta property="og:url" content="https://smartdaybudget.com/guides.html">
-    <meta property="og:title" content="SmartDayBudget Guides — Free Financial Planning & Budgeting Tips">
-    <meta property="og:description" content="Read free budgeting guides and personal finance tips from SmartDayBudget.">
-    <meta property="og:image" content="https://smartdaybudget.com/SmartDayBudget.png">
-    <meta property="og:type" content="website">
-
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -28,41 +20,49 @@
                 <div class="brand-icon">
                     <img src="SmartDayBudget.png" alt="SmartDayBudget Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                 </div>
-                <span class="brand-name">SmartDayBudget</span>
+                <span style="font-size:1.1rem;font-weight:700;color:var(--deep-navy);">SmartDayBudget</span>
             </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
-                    <span>Daily Tracker</span>
-                </a>
-                <a href="compound-interest.html" class="nav-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                    <span>Compound Interest</span>
-                </a>
-                <a href="loan-payoff.html" class="nav-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7h12m-3-1l-3 1m0 0l3 9a5.002 5.002 0 006.001 0M15 7l3 9m-3-9h-3M12 3v18M12 7h3"></path></svg>
-                    <span>Loan Payoff</span>
-                </a>
-                <a href="credit-card-debt.html" class="nav-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                    <span>Credit Card Debt</span>
-                </a>
-                <a href="savings-goals.html" class="nav-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                    <span>Savings Goals</span>
-                </a>
-                <a href="guides.html" class="nav-item active">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                    <span>Guides</span>
-                </a>
-                <a href="about.html" class="nav-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                    <span>About</span>
-                </a>
-            </nav>
+                        <nav class="nav-menu">
+                            <div class="sidebar-controls">
+            <select id="currency-selector" onchange="setCurrency(this.value)" aria-label="Select currency">
+                <option value="USD">$ USD</option>
+                <option value="BDT">৳ BDT</option>
+                <option value="GBP">£ GBP</option>
+                <option value="EUR">€ EUR</option>
+                <option value="INR">₹ INR</option>
+                <option value="PKR">₨ PKR</option>
+                <option value="NGN">₦ NGN</option>
+            </select>
+            <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+        </div>
+    <a href="index.html" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+        <span>Daily Tracker</span>
+    </a>
+    <a href="compound-interest.html" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        <span>Compound Interest</span>
+    </a>
+    <a href="loan-payoff.html" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7h12m-3-1l-3 1m0 0l3 9a5.002 5.002 0 006.001 0M15 7l3 9m-3-9h-3M12 3v18M12 7h3"></path></svg>
+        <span>Loan Payoff</span>
+    </a>
+    <a href="credit-card-debt.html" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+        <span>Credit Card Debt</span>
+    </a>
+    <a href="savings-goals.html" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+        <span>Savings Goals</span>
+    </a>
+    <a href="guides.html" class="nav-item active">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        <span>Guides</span>
+    </a>
+</nav>
         </aside>
 
-        <main class="main-content" style="overflow-y: auto; height: 100vh; -webkit-overflow-scrolling: touch;">
+        <main class="main-content">
             <header class="mobile-header">
                 <button id="sidebar-toggle" class="icon-btn">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -74,58 +74,50 @@
                 <button id="mobile-dark-mode-toggle" class="icon-btn">🌙</button>
             </header>
 
-            <div class="breadcrumb" style="padding: 1rem 1.5rem 0; font-size: 0.9rem; color: #6C757D;">
-                <a href="index.html" style="color: var(--accent, #4f7df3); text-decoration: none;">Home</a>
-                <span>›</span>
-                <span>Guides</span>
-            </div>
-
-            <div class="blog-article-container" style="max-width: 800px; margin: 1.5rem auto;">
-                <h1>SmartDayBudget Guides</h1>
-                <p>Learn practical, simple, privacy-first personal finance strategies and formulas to convert your salary or paycheck into a stable daily limit.</p>
-
-                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <!-- Biweekly Pay Guide -->
+            <div class="dashboard-container" style="padding: 2rem 1.5rem;">
+                <h1 style="font-size: 2rem; color: var(--deep-navy, #0A192F); margin-bottom: 1.5rem;">Financial Guides & Strategies</h1>
+                <div class="guides-list-grid" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    
                     <a href="biweekly-pay-daily-budget-calculator.html" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; display: block; text-decoration: none; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.0125);">
-                        <strong style="font-size: 1.25rem; margin-bottom: 10px; color: var(--accent, #4f7df3); display: block;">How to Stop Running Out of Money Before Payday (Biweekly Pay)</strong>
-                        <span style="font-size: 1rem; line-height: 1.6; color: #4a5568; display: block;">Getting paid every two weeks? Learn how to calculate your exact daily spending limit and survive the emotional paycheck rollercoaster.</span>
+                        <strong style="font-size: 1.25rem; margin-bottom: 10px; color: var(--accent, #4f7df3); display: block;">Daily Spending Limit Calculator for Biweekly Pay</strong>
+                        <span style="font-size: 1rem; line-height: 1.6; color: #4a5568; display: block;">Getting paid every two weeks? Learn how to break down your paycheck into an exact daily allowance to make your money stretch smoothly.</span>
                     </a>
 
-                    <!-- 50,000 Taka Guide -->
                     <a href="50000-taka-daily-budget.html" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; display: block; text-decoration: none; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.0125);">
                         <strong style="font-size: 1.25rem; margin-bottom: 10px; color: var(--accent, #4f7df3); display: block;">How Much to Spend Per Day on a 50,000 Taka Salary</strong>
-                        <span style="font-size: 1rem; line-height: 1.6; color: #4a5568; display: block;">Earning 50,000 taka monthly in Dhaka? Calculate your exact daily spending limit instantly with our reverse budgeting formula.</span>
+                        <span style="font-size: 1rem; line-height: 1.6; color: #4a5568; display: block;">Earning 50k monthly in Dhaka? See a realistic breakdown of fixed rents, grocery expectations, and your true daily allowance limit.</span>
                     </a>
 
-                    <!-- UK Monthly Salary Guide -->
                     <a href="uk-monthly-salary-daily-budget-calculator.html" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; display: block; text-decoration: none; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.0125);">
                         <strong style="font-size: 1.25rem; margin-bottom: 10px; color: var(--accent, #4f7df3); display: block;">How to Stop Running Out of Money Before Payday (UK Monthly Salary)</strong>
-                        <span style="font-size: 1rem; line-height: 1.6; color: #4a5568; display: block;">Paid monthly in London, Manchester, or across the UK? Learn the exact formula to convert your monthly take-home salary into a stable daily limit.</span>
+                        <span style="font-size: 1rem; line-height: 1.6; color: #4a5568; display: block;">Paid monthly in London or Manchester? Learn the exact formula to convert your monthly take-home salary into a stable daily spending limit.</span>
                     </a>
 
-                    <!-- Uber Driver Calculator Guide -->
-                    <a href="daily-budget-calculator-uber-drivers.html" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; display: block; text-decoration: none; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.0125);">    <strong style="font-size: 1.25rem; margin-bottom: 10px; color: var(--accent, #4f7df3); display: block;">    Daily Budget Calculator for Uber Drivers</strong>    <span style="font-size: 1rem; line-height: 1.6; color: #4a5568; display: block;">Gig worker with unpredictable weekly earnings? Learn how to calculate your true daily spending limit after fuel and platform fees.</span></a>
+                    <a href="daily-budget-calculator-uber-drivers.html" style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; display: block; text-decoration: none; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.0125);">
+                        <strong style="font-size: 1.25rem; margin-bottom: 10px; color: var(--accent, #4f7df3); display: block;">Daily Budget Calculator for Uber Drivers</strong>
+                        <span style="font-size: 1rem; line-height: 1.6; color: #4a5568; display: block;">Gig worker with unpredictable weekly earnings? Learn how to calculate your true daily spending limit after fuel and platform fees.</span>
+                    </a>
+
                 </div>
             </div>
 
             <footer class="app-footer">
-                <div class="footer-links">
+                                <div class="footer-links">
                     <a href="index.html">Daily Tracker</a>
                     <a href="compound-interest.html">Compound Interest</a>
                     <a href="loan-payoff.html">Loan Payoff</a>
                     <a href="credit-card-debt.html">Credit Card Debt</a>
                     <a href="savings-goals.html">Savings Goals</a>
                     <a href="guides.html">Guides</a>
-                    <a href="about.html">About</a>
                 </div>
                 <p class="footer-tagline">Free financial calculators. No sign-up. No bank linking. Complete privacy.</p>
                 <p class="footer-copy">&copy; 2026 SmartDayBudget. Built for clarity.</p>
             </footer>
         </main>
     </div>
-
-    <script src="FinanceMath.js"></script>
     <script src="App.js"></script>
+    <script src="upgrades.js"></script>
+</body>
     <script src="upgrades.js"></script>
 </body>
 </html>
