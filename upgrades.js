@@ -1,6 +1,6 @@
 /* ============================================================
    upgrades.js — SmartDayBudget Upgrade Module
-   Handles: Currency, Dark Mode, Charts, PDF, Email, Share
+   Handles: Currency, Dark Mode, Charts, PDF, Email, Share, Copy
    ============================================================ */
 
 // ── 1. CURRENCY SYSTEM ──────────────────────────────────────
@@ -23,7 +23,7 @@ function setCurrency(code) {
 }
 
 function updateCurrencySymbols() {
-  const symbol = currencies[currentCurrency].symbol;
+  const symbol = (currencies[currentCurrency] || currencies["USD"]).symbol;
   document.querySelectorAll('.currency-symbol').forEach(el => {
     el.textContent = symbol;
   });
@@ -83,10 +83,9 @@ function subscribeEmail() {
   if (form) {
     form.innerHTML = '<p class="success-msg">✓ You\'re in! Check your inbox for your first tip.</p>';
   }
-  // Future: replace with Mailchimp/ConvertKit API call
 }
 
-// ── 6. EMBED CODE COPY (index.html) ──────────────────────────
+// ── 6. EMBED CODE COPY ──────────────────────────
 function copyEmbedCode() {
   const code = document.getElementById('embed-code');
   if (!code) return;
@@ -112,6 +111,10 @@ function destroyChart() {
 
 // Daily Budget — PIE CHART
 function renderDailyBudgetChart(income, savings, expenses, allowance) {
+  if (typeof Chart === 'undefined') {
+    console.warn('Chart.js not loaded. Skipping Daily Budget Chart.');
+    return;
+  }
   const container = document.getElementById('results-chart-container');
   const canvas = document.getElementById('resultsChart');
   if (!container || !canvas) return;
@@ -145,6 +148,10 @@ function renderDailyBudgetChart(income, savings, expenses, allowance) {
 
 // Compound Interest — LINE CHART
 function renderCompoundChart(P, PMT, r, t, n) {
+  if (typeof Chart === 'undefined') {
+    console.warn('Chart.js not loaded. Skipping Compound Interest Chart.');
+    return;
+  }
   const container = document.getElementById('results-chart-container');
   const canvas = document.getElementById('resultsChart');
   if (!container || !canvas) return;
@@ -204,7 +211,7 @@ function renderCompoundChart(P, PMT, r, t, n) {
       scales: {
         y: {
           ticks: {
-            callback: val => currencies[currentCurrency].symbol + val.toLocaleString()
+            callback: val => (currencies[currentCurrency] || currencies["USD"]).symbol + val.toLocaleString()
           }
         }
       }
@@ -214,6 +221,10 @@ function renderCompoundChart(P, PMT, r, t, n) {
 
 // Loan Payoff — BAR CHART
 function renderLoanChart(principal, totalInterest) {
+  if (typeof Chart === 'undefined') {
+    console.warn('Chart.js not loaded. Skipping Loan Chart.');
+    return;
+  }
   const container = document.getElementById('results-chart-container');
   const canvas = document.getElementById('resultsChart');
   if (!container || !canvas) return;
@@ -240,7 +251,7 @@ function renderLoanChart(principal, totalInterest) {
       scales: {
         y: {
           ticks: {
-            callback: val => currencies[currentCurrency].symbol + val.toLocaleString()
+            callback: val => (currencies[currentCurrency] || currencies["USD"]).symbol + val.toLocaleString()
           }
         }
       }
@@ -250,6 +261,10 @@ function renderLoanChart(principal, totalInterest) {
 
 // Credit Card Debt — DOUGHNUT CHART
 function renderCreditCardChart(balance, totalInterest) {
+  if (typeof Chart === 'undefined') {
+    console.warn('Chart.js not loaded. Skipping Credit Card Chart.');
+    return;
+  }
   const container = document.getElementById('results-chart-container');
   const canvas = document.getElementById('resultsChart');
   if (!container || !canvas) return;
@@ -273,7 +288,7 @@ function renderCreditCardChart(balance, totalInterest) {
         legend: { position: 'bottom' },
         title: {
           display: true,
-          text: 'Total Cost: ' + currencies[currentCurrency].symbol + (balance + totalInterest).toLocaleString()
+          text: 'Total Cost: ' + (currencies[currentCurrency] || currencies["USD"]).symbol + (balance + totalInterest).toLocaleString()
         }
       }
     }
@@ -282,6 +297,10 @@ function renderCreditCardChart(balance, totalInterest) {
 
 // Savings Goal — BAR CHART
 function renderSavingsChart(current, goal) {
+  if (typeof Chart === 'undefined') {
+    console.warn('Chart.js not loaded. Skipping Savings Goal Chart.');
+    return;
+  }
   const container = document.getElementById('results-chart-container');
   const canvas = document.getElementById('resultsChart');
   if (!container || !canvas) return;
@@ -309,7 +328,7 @@ function renderSavingsChart(current, goal) {
       scales: {
         y: {
           ticks: {
-            callback: val => currencies[currentCurrency].symbol + val.toLocaleString()
+            callback: val => (currencies[currentCurrency] || currencies["USD"]).symbol + val.toLocaleString()
           }
         }
       }
@@ -317,7 +336,7 @@ function renderSavingsChart(current, goal) {
   });
 }
 
-// ── 8. DEBT-FREE DATE (credit-card-debt.html) ────────────────
+// ── 8. DEBT-FREE DATE ────────────────
 function getDebtFreeDate(months) {
   if (!months || months <= 0 || months === Infinity) return '—';
   const date = new Date();
@@ -346,9 +365,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── Hook into existing App.js calculation updates via MutationObserver ──
+  // Global Copy Summary Click Listener
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn-copy-summary');
+    if (btn) {
+      const pre = btn.closest('.right-wing-canvas').querySelector('.canvas-pre');
+      if (pre) {
+        const text = pre.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          const originalText = btn.textContent;
+          btn.textContent = 'Report Copied! ✓';
+          setTimeout(() => {
+            btn.textContent = originalText;
+          }, 2000);
+        });
+      }
+    }
+  });
 
-  // Daily Budget Chart
+  // Daily Budget Chart Observer
   const dbAllowance = document.getElementById('db-remaining-allowance');
   if (dbAllowance) {
     new MutationObserver(() => {
@@ -360,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }).observe(dbAllowance, { childList: true, subtree: true, characterData: true });
   }
 
-  // Compound Interest Chart
+  // Compound Interest Chart Observer
   const ciFV = document.getElementById('ci-fv');
   if (ciFV) {
     new MutationObserver(() => {
@@ -373,7 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }).observe(ciFV, { childList: true, subtree: true, characterData: true });
   }
 
-  // Loan Chart
+  // Loan Chart Observer
   const laInterest = document.getElementById('la-interest');
   if (laInterest) {
     new MutationObserver(() => {
@@ -383,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }).observe(laInterest, { childList: true, subtree: true, characterData: true });
   }
 
-  // Credit Card Chart + Debt-Free Date
+  // Credit Card Chart + Debt-Free Date Observer
   const ccMonths = document.getElementById('cc-months');
   if (ccMonths) {
     new MutationObserver(() => {
@@ -398,7 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }).observe(ccMonths, { childList: true, subtree: true, characterData: true });
   }
 
-  // Savings Goal Chart
+  // Savings Goal Chart Observer
   const sgDeposit = document.getElementById('sg-deposit');
   if (sgDeposit) {
     new MutationObserver(() => {
@@ -407,4 +442,105 @@ document.addEventListener('DOMContentLoaded', () => {
       renderSavingsChart(current, goal);
     }).observe(sgDeposit, { childList: true, subtree: true, characterData: true });
   }
+
+  // Global Inline Arithmetic Evaluator Init
+  initializeInlineCalculators();
 });
+
+// ── 9. INLINE ARITHMETIC EVALUATOR ───────────────────────────
+function evaluateInlineMath(input) {
+  const rawVal = input.value.trim();
+  if (!rawVal) return;
+  
+  // Replace custom symbols with standard JS operators
+  let sanitized = rawVal.replace(/x/gi, '*').replace(/÷/g, '/');
+  // Strip out all characters that aren't math operators, decimals, spaces, or parenthesis
+  sanitized = sanitized.replace(/[^0-9+\-*/().\s]/g, '');
+  
+  // Test if it contains at least one math operator to evaluate
+  if (!/[+\-*/]/.test(sanitized)) {
+      return;
+  }
+  
+  try {
+      // Safe evaluation
+      const result = Function("return (" + sanitized + ")")();
+      if (typeof result === 'number' && !isNaN(result) && isFinite(result)) {
+          // Format result to a clean decimal string (max 4 decimal places)
+          const resolvedValue = Number(result.toFixed(4)).toString();
+          input.value = resolvedValue;
+          
+          // Dispatch input and change events so the active calculator reacts immediately
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+          input.dispatchEvent(new Event('change', { bubbles: true }));
+          
+          // Fade out the helper tip if present
+          const tip = input.parentNode.querySelector('.math-tip');
+          if (tip) {
+              tip.style.opacity = '0';
+              setTimeout(() => tip.remove(), 300);
+          }
+      }
+  } catch (e) {
+      console.warn('Inline evaluation failed:', e);
+  }
+}
+
+function updateInlineMathTip(input) {
+  const value = input.value;
+  const hasOperator = /[+\-*x/÷]/.test(value);
+  let tip = input.parentNode.querySelector('.math-tip');
+  
+  if (hasOperator) {
+      if (!tip) {
+          tip = document.createElement('span');
+          tip.className = 'math-tip';
+          tip.style.fontSize = '0.75rem';
+          tip.style.color = '#888';
+          tip.style.display = 'block';
+          tip.style.marginTop = '2px';
+          tip.style.transition = 'opacity 0.2s ease';
+          tip.textContent = '⌨️ Press Enter to calculate';
+          input.parentNode.appendChild(tip);
+      }
+      tip.style.opacity = '1';
+  } else {
+      if (tip) {
+          tip.style.opacity = '0';
+          setTimeout(() => {
+              if (tip && tip.style.opacity === '0') {
+                  tip.remove();
+              }
+          }, 300);
+      }
+  }
+}
+
+function initializeInlineCalculators() {
+  // Keydown listener for Enter key evaluation using event delegation
+  document.addEventListener('keydown', (e) => {
+      const target = e.target;
+      if (target && target.classList.contains('math-input')) {
+          if (e.key === 'Enter') {
+              e.preventDefault();
+              evaluateInlineMath(target);
+          }
+      }
+  });
+
+  // Focusout (blur) listener for evaluation using event delegation
+  document.addEventListener('focusout', (e) => {
+      const target = e.target;
+      if (target && target.classList.contains('math-input')) {
+          evaluateInlineMath(target);
+      }
+  });
+
+  // Input listener to display dynamic micro-tip using event delegation
+  document.addEventListener('input', (e) => {
+      const target = e.target;
+      if (target && target.classList.contains('math-input')) {
+          updateInlineMathTip(target);
+      }
+  });
+}

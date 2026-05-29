@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SmartDayBudget">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Free Personal Balance Sheet Calculator | Track Assets & Liabilities</title>
+    <meta name="description" content="Easily calculate your net worth, track assets, and balance your liabilities with our free, private balance sheet tool. No bank linking required.">
+    <link rel="canonical" href="https://smartdaybudget.com/balance-sheet.html">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://smartdaybudget.com/balance-sheet.html">
+    <meta property="og:title" content="Free Balance Sheet Calculator | SmartDayBudget">
+    <meta property="og:description" content="Calculate your assets, liabilities, and owner's equity instantly. Free balance sheet calculator with real-time balancing indicator.">
+    <meta property="og:image" content="https://smartdaybudget.com/SmartDayBudget.png">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Balance Sheet Calculator | SmartDayBudget">
+    <meta name="twitter:description" content="Calculate your assets, liabilities, and owner's equity instantly with our free interactive balance sheet calculator.">
+    <meta name="twitter:image" content="https://smartdaybudget.com/SmartDayBudget.png">
+
+    <!-- Fonts & Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Print CSS -->
+    <style>
+      @media print {
+        .sidebar, footer, .ad-slot, .share-section, .btn-pdf, .action-buttons { display: none !important; }
+        .calculator-card { box-shadow: none; border: 1px solid #ddd; }
+        body::before {
+          content: "SmartDayBudget.com — Free Standalone Balance Sheet Calculator";
+          display: block; text-align: center;
+          font-size: 18px; font-weight: bold; margin-bottom: 20px;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Free Personal Balance Sheet Calculator | Track Assets & Liabilities",
+      "description": "Easily calculate your net worth, track assets, and balance your liabilities with our free, private balance sheet tool. No bank linking required.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "SmartDayBudget",
+        "url": "https://smartdaybudget.com"
+      }
+    }
+    </script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- SIDEBAR NAV -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <img src="SmartDayBudget.png" alt="SmartDayBudget Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                </div>
+                <span style="font-size:1.1rem;font-weight:700;color:var(--deep-navy);">SmartDayBudget</span>
+            </div>
+
+            <!-- Sidebar Controls -->
+            <div class="sidebar-controls">
+                <select id="currency-selector" aria-label="Select currency">
+                    <option value="USD">$ USD</option>
+                    <option value="BDT">৳ BDT</option>
+                    <option value="GBP">£ GBP</option>
+                    <option value="EUR">€ EUR</option>
+                    <option value="INR">₹ INR</option>
+                    <option value="PKR">₨ PKR</option>
+                    <option value="NGN">₦ NGN</option>
+                </select>
+                <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+            </div>
+
+                                                                                                                                                                                    <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg><span>Daily Tracker</span>
+                </a>
+                <a href="compound-interest.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg><span>Compound Interest</span>
+                </a>
+                <a href="loan-payoff.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 0 0 6.001 0M6 7l3 9M6 7h12m-3-1l-3 1m0 0l3 9a5.002 5.002 0 0 0 6.001 0M15 7l3 9m-3-9h-3M12 3v18M12 7h3"></path></svg><span>Loan Payoff</span>
+                </a>
+                <a href="credit-card-debt.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg><span>Credit Card Debt</span>
+                </a>
+                <a href="savings-goals.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg><span>Savings Goals</span>
+                </a>
+                <a href="balance-sheet.html" class="nav-item active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg><span>Balance Sheet</span>
+                </a>
+                <a href="income-statement.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg><span>Income Statement</span>
+                </a>
+                <a href="cash-flow.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 1 0 7H6"></path></svg><span>Cash Flow</span>
+                </a>
+                <a href="equity.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8l-4 4h8z"></path></svg><span>Equity Changes</span>
+                </a>
+                <a href="guides.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span>Guides</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <header class="mobile-header">
+                <div class="brand-icon">
+                    <img src="SmartDayBudget.png" alt="SmartDayBudget Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                </div>
+                <span style="font-weight:700;font-size:1.1rem;">SmartDayBudget</span>
+                <div style="display:flex;gap:8px;margin-left:auto;">
+                    <select id="currency-selector-mobile" class="mobile-currency-selector">
+                        <option value="USD">$ USD</option>
+                        <option value="BDT">৳ BDT</option>
+                        <option value="GBP">£ GBP</option>
+                        <option value="EUR">€ EUR</option>
+                        <option value="INR">₹ INR</option>
+                        <option value="PKR">₨ PKR</option>
+                        <option value="NGN">₦ NGN</option>
+                    </select>
+                    <button class="mobile-dark-mode-toggle" id="mobile-dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+                </div>
+            </header>
+
+            <!-- Page Header -->
+            <section class="page-header">
+                <h1>Balance Sheet Calculator</h1>
+                <p>Verify your total owned assets match your total owed liabilities and owner capital investment with our dynamic dual-entry equation validator.</p>
+            </section>
+
+            <!-- Ad Slot 1: Top -->
+            <div class="ad-slot ad-top">
+                <span>Advertisement</span>
+            </div>
+
+            <div class="container">
+                <section class="calculator-card">
+                    
+                    <div class="calculator-workspace">
+                    <div class="left-wing">
+                        <div id="balance-sheet-calc">
+                        <div class="how-to-use">
+                            <h2>How to Use the Balance Sheet Calculator</h2>
+                            <p>Formula: <strong>Assets = Liabilities + Owner's Equity</strong></p>
+                            <p>Enter the names and estimated amounts of all things your business or household owns (Assets), then add details of what you owe (Liabilities) and capital allocations (Equity).</p>
+                        </div>
+
+                        <!-- Balancer Bar Indicator -->
+                        <div class="balancer-container unbalanced" id="bs-balancer-container">
+                            <div class="balancer-status-row">
+                                <span id="bs-balancer-status">Calculating Balance Sheet...</span>
+                            </div>
+                            <div class="balancer-bar">
+                                <div class="balancer-fill" id="bs-balancer-fill"></div>
+                            </div>
+                        </div>
+
+                        <div class="inputs">
+                            <!-- ASSETS -->
+                            <div class="incomes-header">
+                                <h3>Assets (Things you OWN)</h3>
+                                <button id="add-bs-asset-btn" class="btn-icon" aria-label="Add Asset">+</button>
+                            </div>
+                            <div id="bs-assets-container"></div>
+                            
+                            <hr style="border: none; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+                            <!-- LIABILITIES -->
+                            <div class="expenses-header">
+                                <h3>Liabilities (Things you OWE)</h3>
+                                <button id="add-bs-liability-btn" class="btn-icon" aria-label="Add Liability">+</button>
+                            </div>
+                            <div id="bs-liabilities-container"></div>
+
+                            <hr style="border: none; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+                            <!-- OWNER'S EQUITY -->
+                            <div class="incomes-header">
+                                <h3>Owner's Equity (Capital Investments)</h3>
+                                <button id="add-bs-equity-btn" class="btn-icon" aria-label="Add Equity">+</button>
+                            </div>
+                            <div id="bs-equity-container"></div>
+                        </div>
+
+                        <div class="outputs">
+                            <div class="result-row">
+                                <span>Total Assets</span>
+                                <strong id="bs-total-assets">0.00 Taka</strong>
+                            </div>
+                            <div class="result-row">
+                                <span>Total Liabilities</span>
+                                <strong id="bs-total-liabilities">0.00 Taka</strong>
+                            </div>
+                            <div class="result-row">
+                                <span>Total Owner's Equity</span>
+                                <strong id="bs-total-equity">0.00 Taka</strong>
+                            </div>
+                            <div class="result-row" style="border-top: 2px solid rgba(255,255,255,0.25);">
+                                <span>Total Liabilities + Equity</span>
+                                <strong id="bs-total-liabilities-equity">0.00 Taka</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons" style="margin-top: 2rem;"><button class="btn-pdf" onclick="savePDF()">â¬‡ Save as PDF</button></div>
+                    </div>
+                    <div class="right-wing-canvas">
+                        <div class="canvas-header">
+                            <h3>Live Master Sheet</h3>
+                            <button class="btn-copy-summary" id="copy-summary-btn">ðŸ“‹ Copy Full Summary</button>
+                        </div>
+                        <pre class="canvas-pre" id="live-canvas-text">Loading balance sheet report...</pre>
+                    </div>
+                </div>
+
+                </section>
+            </div>
+
+            <!-- SEO Content Section -->
+            <section class="seo-content" style="max-width: 800px; margin: 2rem auto; padding: 0 1.5rem;">
+                <h2>What is a Balance Sheet?</h2>
+                <p>A <strong>balance sheet</strong> is one of the three primary financial statements in business accounting, along with the income statement and cash flow statement. It offers a structured "snapshot" of a company's financial position at a single specific point in time, showing what it owns, what it owes, and the amount invested by its shareholders.</p>
+                <p>The term "balance" refers to the fundamental accounting equation that governs it. In standard bookkeeping practices, a balance sheet must always satisfy this relationship:</p>
+                <p style="text-align: center; font-size: 1.15rem; font-weight: 600; color: var(--deep-navy);">Assets = Liabilities + Owner's Equity</p>
+
+                <h2>Understanding the Three Core Components</h2>
+                <ol style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li style="margin-bottom: 8px;">
+                        <strong>Assets (What you own)</strong>: Economic resources that have positive monetary value. These are split into:
+                        <ul>
+                            <li><em>Current Assets</em>: Cash, bank balances, inventory, accounts receivable, and prepayments that are expected to be converted into cash within a year.</li>
+                            <li><em>Non-Current (Fixed) Assets</em>: Long-term assets such as machinery, computing hardware, office furniture, real estate, and vehicle fleets.</li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 8px;">
+                        <strong>Liabilities (What you owe)</strong>: Financial obligations or debts owed to external creditors. These include:
+                        <ul>
+                            <li><em>Current Liabilities</em>: Short-term debts, supplier invoices (accounts payable), credit card balances, and taxes due within one year.</li>
+                            <li><em>Long-Term Liabilities</em>: Multi-year commitments such as mortgages, business lines of credit, or bank term loans.</li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 8px;">
+                        <strong>Owner's Equity (Capital allocation)</strong>: The remaining value belonging to the owners or shareholders after all liabilities have been paid. This includes initial capital contributions, subsequent investor capital, and accumulated retained earnings.
+                    </li>
+                </ol>
+
+                <h2>Why Using a Live Equation Checker Matters</h2>
+                <p>Entering transaction ledger rows manually can easily introduce calculation anomalies or simple keystroke omissions. Our <strong>interactive balance sheet calculator</strong> runs continuous arithmetic calculations in the background as you type, highlighting differences instantly.</p>
+                <p>The visual balancer bar at the top provides direct color feedback: if the assets do not strictly equal the combined sum of liabilities and owner capital, the alert renders in crimson. When the equation balances perfectly, it transitions to success green, confirming the reliability of your ledger statement.</p>
+            </section>
+
+            <!-- Footer -->
+            <footer class="app-footer">
+                                                                                                                                                                                                                                                <div class="footer-links">
+   <footer style="margin-top: 40px; padding: 20px; border-top: 1px solid #e2e8f0; font-size: 0.9rem; color: #4a5568;">
+     <nav aria-label="Footer Navigation">
+       <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+         <li><a href="index.html" style="color: #4a5568; text-decoration: none;">Daily Budget Tracker</a></li>
+         <li><a href="compound-interest.html" style="color: #4a5568; text-decoration: none;">Compound Interest Calculator</a></li>
+         <li><a href="loan-payoff.html" style="color: #4a5568; text-decoration: none;">Loan Payoff Calculator</a></li>
+         <li><a href="credit-card-debt.html" style="color: #4a5568; text-decoration: none;">Credit Card Debt Payoff</a></li>
+         <li><a href="savings-goals.html" style="color: #4a5568; text-decoration: none;">Savings Goal Calculator</a></li>
+         <li><a href="balance-sheet.html" style="color: #4a5568; text-decoration: none;">Personal Balance Sheet</a></li>
+         <li><a href="income-statement.html" style="color: #4a5568; text-decoration: none;">Income Statement Calculator</a></li>
+         <li><a href="cash-flow.html" style="color: #4a5568; text-decoration: none;">Cash Flow Statement</a></li>
+         <li><a href="equity.html" style="color: #4a5568; text-decoration: none;">Changes in Equity Calculator</a></li>
+         <li><a href="guides.html" style="color: #4a5568; text-decoration: none;">Financial Guides</a></li>
+       </ul>
+     </nav>
+   </footer>
+                </div>
+                <p class="footer-tagline">Free financial calculators. No sign-up. No bank linking. Complete privacy.</p>
+                <p class="footer-copy">&copy; 2026 SmartDayBudget. Built for clarity.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="upgrades.js"></script>
+    <script src="balance-sheet.js"></script>
+</body>
+</html>
+

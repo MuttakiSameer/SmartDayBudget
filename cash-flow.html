@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SmartDayBudget">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Cash Flow Statement Calculator | Reconcile Your Balances</title>
+    <meta name="description" content="Reconcile your personal or business cash flow. Track operating, investing, and financing activities to find your exact ending cash balance.">
+    <link rel="canonical" href="https://smartdaybudget.com/cash-flow.html">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://smartdaybudget.com/cash-flow.html">
+    <meta property="og:title" content="Free Cash Flow Calculator | SmartDayBudget">
+    <meta property="og:description" content="Calculate your operating, investing, and financing cash flows instantly. Free Cash Flow calculator with real-time reconciliations.">
+    <meta property="og:image" content="https://smartdaybudget.com/SmartDayBudget.png">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Cash Flow Calculator | SmartDayBudget">
+    <meta name="twitter:description" content="Calculate your operating, investing, and financing cash flows instantly with our free Cash Flow calculator.">
+    <meta name="twitter:image" content="https://smartdaybudget.com/SmartDayBudget.png">
+
+    <!-- Fonts & Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Print CSS -->
+    <style>
+      @media print {
+        .sidebar, footer, .ad-slot, .share-section, .btn-pdf, .action-buttons { display: none !important; }
+        .calculator-card { box-shadow: none; border: 1px solid #ddd; }
+        body::before {
+          content: "SmartDayBudget.com â€” Free Standalone Cash Flow Statement Calculator";
+          display: block; text-align: center;
+          font-size: 18px; font-weight: bold; margin-bottom: 20px;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Cash Flow Statement Calculator | Reconcile Your Balances",
+      "description": "Reconcile your personal or business cash flow. Track operating, investing, and financing activities to find your exact ending cash balance.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "SmartDayBudget",
+        "url": "https://smartdaybudget.com"
+      }
+    }
+    </script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- SIDEBAR NAV -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <img src="SmartDayBudget.png" alt="SmartDayBudget Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                </div>
+                <span style="font-size:1.1rem;font-weight:700;color:var(--deep-navy);">SmartDayBudget</span>
+            </div>
+
+            <!-- Sidebar Controls -->
+            <div class="sidebar-controls">
+                <select id="currency-selector" aria-label="Select currency">
+                    <option value="USD">$ USD</option>
+                    <option value="BDT">৳ BDT</option>
+                    <option value="GBP">£ GBP</option>
+                    <option value="EUR">€ EUR</option>
+                    <option value="INR">₹ INR</option>
+                    <option value="PKR">₨ PKR</option>
+                    <option value="NGN">₦ NGN</option>
+                </select>
+                <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+            </div>
+
+                                                                                                                                                                                    <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg><span>Daily Tracker</span>
+                </a>
+                <a href="compound-interest.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg><span>Compound Interest</span>
+                </a>
+                <a href="loan-payoff.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 0 0 6.001 0M6 7l3 9M6 7h12m-3-1l-3 1m0 0l3 9a5.002 5.002 0 0 0 6.001 0M15 7l3 9m-3-9h-3M12 3v18M12 7h3"></path></svg><span>Loan Payoff</span>
+                </a>
+                <a href="credit-card-debt.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg><span>Credit Card Debt</span>
+                </a>
+                <a href="savings-goals.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg><span>Savings Goals</span>
+                </a>
+                <a href="balance-sheet.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg><span>Balance Sheet</span>
+                </a>
+                <a href="income-statement.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg><span>Income Statement</span>
+                </a>
+                <a href="cash-flow.html" class="nav-item active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 1 0 7H6"></path></svg><span>Cash Flow</span>
+                </a>
+                <a href="equity.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8l-4 4h8z"></path></svg><span>Equity Changes</span>
+                </a>
+                <a href="guides.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span>Guides</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <header class="mobile-header">
+                <div class="brand-icon">
+                    <img src="SmartDayBudget.png" alt="SmartDayBudget Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                </div>
+                <span style="font-weight:700;font-size:1.1rem;">SmartDayBudget</span>
+                <div style="display:flex;gap:8px;margin-left:auto;">
+                    <select id="currency-selector-mobile" class="mobile-currency-selector">
+                        <option value="USD">$ USD</option>
+                        <option value="BDT">৳ BDT</option>
+                        <option value="GBP">£ GBP</option>
+                        <option value="EUR">€ EUR</option>
+                        <option value="INR">₹ INR</option>
+                        <option value="PKR">₨ PKR</option>
+                        <option value="NGN">₦ NGN</option>
+                    </select>
+                    <button class="mobile-dark-mode-toggle" id="mobile-dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+                </div>
+            </header>
+
+            <!-- Page Header -->
+            <section class="page-header">
+                <h1>Cash Flow Statement Calculator</h1>
+                <p>Build your cash flow statement live by automatically cataloging cash inflows and outflows.</p>
+            </section>
+
+            <!-- Ad Slot 1: Top -->
+            <div class="ad-slot ad-top">
+                <span>Advertisement</span>
+            </div>
+
+            <div class="container">
+                <section class="calculator-card">
+                    
+                    <div class="calculator-workspace">
+                    <div class="left-wing">
+                        <div id="cash-flow-calc">
+                        <div class="how-to-use">
+                            <h2>How to Use the Cash Flow Calculator</h2>
+                            <p>Formula: <strong>Net Cash Flow = Operating CF + Investing CF + Financing CF</strong></p>
+                            <p>Enter your Starting Cash Balance first. Then add cash transactions below. Answer the two simple non-technical questions to route each transaction automatically to its correct category.</p>
+                        </div>
+
+                        <div class="inputs">
+                            <div class="input-group">
+                                <label for="cf-initial-cash">Starting Cash Balance</label>
+                                <input type="text" id="cf-initial-cash" class="math-input" placeholder="0.00">
+                            </div>
+
+                            <hr style="border: none; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+                            <div class="incomes-header">
+                                <h3>Cash Transactions</h3>
+                                <button id="add-cf-entry-btn" class="btn-icon" aria-label="Add Transaction">+</button>
+                            </div>
+                            <div id="cf-entries-container"></div>
+                        </div>
+
+                        <div class="outputs">
+                            <div class="result-row">
+                                <span>Operating Cash Flow</span>
+                                <strong id="cf-ops-total">0.00 Taka</strong>
+                            </div>
+                            <div class="result-row">
+                                <span>Investing Cash Flow</span>
+                                <strong id="cf-inv-total">0.00 Taka</strong>
+                            </div>
+                            <div class="result-row">
+                                <span>Financing Cash Flow</span>
+                                <strong id="cf-fin-total">0.00 Taka</strong>
+                            </div>
+                            <div class="result-row" style="border-top: 2px solid rgba(255,255,255,0.25);">
+                                <span>Net Change in Cash</span>
+                                <strong id="cf-net-change">0.00 Taka</strong>
+                            </div>
+                            <div class="result-row">
+                                <span>Ending Cash Balance</span>
+                                <strong id="cf-ending-cash">0.00 Taka</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons" style="margin-top: 2rem;"><button class="btn-pdf" onclick="savePDF()">â¬‡ Save as PDF</button></div>
+                    </div>
+                    <div class="right-wing-canvas">
+                        <div class="canvas-header">
+                            <h3>Live Master Sheet</h3>
+                            <button class="btn-copy-summary" id="copy-summary-btn">ðŸ“‹ Copy Full Summary</button>
+                        </div>
+                        <pre class="canvas-pre" id="live-canvas-text">Loading cash flow report...</pre>
+                    </div>
+                </div>
+
+                </section>
+            </div>
+
+            <!-- SEO Content Section -->
+            <section class="seo-content" style="max-width: 800px; margin: 2rem auto; padding: 0 1.5rem;">
+                <h2>What is a Cash Flow Statement?</h2>
+                <p>A <strong>cash flow statement</strong> tracks the physical movement of cash in and out of a business during a specific timeframe. While an income statement can include non-cash ledger values (like accounts receivable or depreciation), the cash flow statement is strictly focused on **actual physical money**.</p>
+                <p>Physical cash flow is typically divided into three primary activities:</p>
+                <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li><strong>Operating Activities</strong>: Cash used for or gained from daily operations, such as customer payments, utility bills, raw inventory purchases, and employee salaries.</li>
+                    <li><strong>Investing Activities</strong>: Physical cash used for purchasing or selling long-term capital assets, such as office hardware, physical property, or machinery.</li>
+                    <li><strong>Financing Activities</strong>: Cash exchanges between the company and its owners or lenders, including receiving a bank loan, issuing equity shares, or paying owner drawings.</li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer class="app-footer">
+                                                                                                                                                                                                                                                <div class="footer-links">
+   <footer style="margin-top: 40px; padding: 20px; border-top: 1px solid #e2e8f0; font-size: 0.9rem; color: #4a5568;">
+     <nav aria-label="Footer Navigation">
+       <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+         <li><a href="index.html" style="color: #4a5568; text-decoration: none;">Daily Budget Tracker</a></li>
+         <li><a href="compound-interest.html" style="color: #4a5568; text-decoration: none;">Compound Interest Calculator</a></li>
+         <li><a href="loan-payoff.html" style="color: #4a5568; text-decoration: none;">Loan Payoff Calculator</a></li>
+         <li><a href="credit-card-debt.html" style="color: #4a5568; text-decoration: none;">Credit Card Debt Payoff</a></li>
+         <li><a href="savings-goals.html" style="color: #4a5568; text-decoration: none;">Savings Goal Calculator</a></li>
+         <li><a href="balance-sheet.html" style="color: #4a5568; text-decoration: none;">Personal Balance Sheet</a></li>
+         <li><a href="income-statement.html" style="color: #4a5568; text-decoration: none;">Income Statement Calculator</a></li>
+         <li><a href="cash-flow.html" style="color: #4a5568; text-decoration: none;">Cash Flow Statement</a></li>
+         <li><a href="equity.html" style="color: #4a5568; text-decoration: none;">Changes in Equity Calculator</a></li>
+         <li><a href="guides.html" style="color: #4a5568; text-decoration: none;">Financial Guides</a></li>
+       </ul>
+     </nav>
+   </footer>
+                </div>
+                <p class="footer-tagline">Free financial calculators. No sign-up. No bank linking. Complete privacy.</p>
+                <p class="footer-copy">&copy; 2026 SmartDayBudget. Built for clarity.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="upgrades.js"></script>
+    <script src="cash-flow.js"></script>
+</body>
+</html>
+

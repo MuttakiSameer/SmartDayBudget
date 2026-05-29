@@ -64,30 +64,33 @@ const FinanceMath = {
         const monthlyRate = APR / 100 / 12;
         const monthlyInterest = B * monthlyRate;
         
-        if (B <= 0) return { months: 0, totalInterest: 0 };
+        if (B <= 0) return { months: 0, totalInterest: 0, finalMonthPayment: 0 };
         if (p <= monthlyInterest) {
             return { error: true, message: "Warning: Your payment is too low to cover monthly interest. Your debt will grow." };
         }
         
-        // Calculate exact interest using iterative approach
+        // Calculate exact interest using iterative approach with final month capping
         let remaining = B;
         let totalInterestPaid = 0;
         let count = 0;
+        let finalMonthPayment = p;
         
         while (remaining > 0 && count < 1000) {
             let interest = remaining * monthlyRate;
-            totalInterestPaid += interest;
-            let principalPaid = p - interest;
+            let requiredForThisMonth = remaining + interest;
             
-            if (remaining < principalPaid) {
+            if (p >= requiredForThisMonth) {
+                finalMonthPayment = requiredForThisMonth;
+                totalInterestPaid += interest;
                 remaining = 0;
             } else {
-                remaining -= principalPaid;
+                totalInterestPaid += interest;
+                remaining = remaining + interest - p;
             }
             count++;
         }
         
-        return { months: count, totalInterest: totalInterestPaid };
+        return { months: count, totalInterest: totalInterestPaid, finalMonthPayment: finalMonthPayment };
     },
     
     // E. Savings Goal Calculator
@@ -100,5 +103,19 @@ const FinanceMath = {
         if (monthsT <= 0) return { monthlyDeposit: 0 };
         const required = (G - S) / monthsT;
         return { monthlyDeposit: Math.max(0, required) };
+    },
+    
+    // F. Smart Financial Statement calculations
+    calculateBalanceSheet: (assets, liabilities, equity) => {
+        const totalAssets = assets.reduce((sum, item) => sum + (parseFloat(item.amount) || 0), 0);
+        const totalLiabilities = liabilities.reduce((sum, item) => sum + (parseFloat(item.amount) || 0), 0);
+        const totalEquity = equity.reduce((sum, item) => sum + (parseFloat(item.amount) || 0), 0);
+        const isBalanced = Math.abs(totalAssets - (totalLiabilities + totalEquity)) < 0.01;
+        return { totalAssets, totalLiabilities, totalEquity, isBalanced };
+    },
+    calculateIncomeStatement: (revenues, expenses) => {
+        const totalRevenue = revenues.reduce((sum, item) => sum + (parseFloat(item.amount) || 0), 0);
+        const totalExpenses = expenses.reduce((sum, item) => sum + (parseFloat(item.amount) || 0), 0);
+        return { totalRevenue, totalExpenses, netIncome: totalRevenue - totalExpenses };
     }
 };
